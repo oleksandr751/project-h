@@ -5,18 +5,19 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import { PositionType } from "../../types";
-interface TimelineProps {
-  data: {
-    name: string;
-    dateStart: string;
-    dateEnd: string;
-    description: string;
-    backgroundColor?: string;
-  }[];
-  position?: PositionType;
+import { TPositionType } from "../../types";
+interface ITimelineData {
+  name: string;
+  dateStart: string;
+  dateEnd: string;
+  description: string;
+  backgroundColor?: string;
 }
-const TimelineComponent = ({ data, position }: TimelineProps) => {
+interface ITimelineProps {
+  data: ITimelineData[];
+  position?: TPositionType;
+}
+const TimelineComponent: React.FC<ITimelineProps> = ({ data, position }) => {
   return (
     <Timeline position={position}>
       {data.map((timelineItem, idx) => (

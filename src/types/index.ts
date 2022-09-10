@@ -1,1 +1,1 @@
-export declare type PositionType = "left" | "right" | "alternate";
+export declare type TPositionType = "left" | "right" | "alternate";

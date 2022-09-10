@@ -5,21 +5,12 @@ import { myStyle } from "./styles";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import { IContentData } from "../../interfaces/index";
 
-interface ContentPageProps {
-  data: {
-    name: string;
-    description: string;
-    imageSrc: string;
-    timelineData: {
-      name: string;
-      dateStart: string;
-      dateEnd: string;
-      description: string;
-    }[];
-  };
+interface IContentPageProps {
+  data: IContentData;
 }
-const ContentPage = ({ data }: ContentPageProps) => {
+const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
   const [value, setValue] = useState("1");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);

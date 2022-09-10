@@ -1,34 +1,15 @@
 import { createContext } from "react";
 import { countries } from "../data/countries";
+import { IContentData } from "../interfaces";
 
-interface MainContextTypes {
-  countriesData: {
-    name: string;
-    description: string;
-    imageSrc: string;
-    timelineData: {
-      name: string;
-      dateStart: string;
-      dateEnd: string;
-      description: string;
-    }[];
-  }[];
-  selectedItem: {
-    name: string;
-    description: string;
-    imageSrc: string;
-    timelineData: {
-      name: string;
-      dateStart: string;
-      dateEnd: string;
-      description: string;
-    }[];
-  };
-  setSelectedItem: (par: any) => void;
-  setCountriesData: (par: any) => void;
+interface IMainContext {
+  countriesData: IContentData[];
+  selectedItem: IContentData;
+  setSelectedItem: (par: IContentData) => void;
+  setCountriesData: (par: IContentData[]) => void;
 }
 
-export const MainContext = createContext<MainContextTypes>({
+export const MainContext = createContext<IMainContext>({
   countriesData: countries,
   selectedItem: countries[0],
   setSelectedItem: () => {},

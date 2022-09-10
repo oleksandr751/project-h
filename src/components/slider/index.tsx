@@ -10,16 +10,17 @@ import SwiperCore, {
 } from "swiper";
 import "swiper/css";
 import { Typography } from "@mui/material";
-interface SliderTypes {
-  slides: {
-    id: number;
-    text?: string;
-    author?: string;
-    year?: string;
-    alt?: string;
-  }[];
+interface ISliderSlides {
+  id: number;
+  text?: string;
+  author?: string;
+  year?: string;
+  alt?: string;
 }
-const Slider = ({ slides }: SliderTypes) => {
+interface ISliderProps {
+  slides: ISliderSlides[];
+}
+const Slider: React.FC<ISliderProps> = ({ slides }) => {
   SwiperCore.use([
     Navigation,
     Pagination,
