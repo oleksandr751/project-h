@@ -6,6 +6,12 @@ export const countries = [
     name: "Ukraine",
     description: "Description here...",
     imageSrc: ukraine_src,
+    generalInfo: {
+      capital: "Kyiv",
+      population: "40 000 000 people",
+      highestPeak: "Hoverla 2061m",
+      area: "603 700 km^2",
+    },
     timelineData: [
       {
         name: "Name 1",
@@ -103,6 +109,12 @@ export const countries = [
     name: "Germany",
     description: "Description here...",
     imageSrc: germany_src,
+    generalInfo: {
+      capital: "Berlin",
+      population: "80 000 000 people",
+      highestPeak: "Zugspitze 2962m",
+      area: "357 588 km^2",
+    },
     timelineData: [
       {
         name: "Name 1",

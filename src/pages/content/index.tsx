@@ -6,6 +6,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { IContentData } from "../../interfaces/index";
+import GeneralInfo from "./components/general_info";
 
 interface IContentPageProps {
   data: IContentData;
@@ -50,13 +51,13 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
                 <Tab label="Images" value="3" sx={{ width: "300px" }} />
               </TabList>
             </Box>
-            <TabPanel value="1" sx={{ width: "70%" }}>
+            <TabPanel value="1" sx={{ width: "70%", minHeight: "400px" }}>
+              <GeneralInfo data={data.generalInfo} contentType={"country"} />
+            </TabPanel>
+            <TabPanel value="2" sx={{ width: "70%", minHeight: "400px" }}>
               <TimelineComponent data={data.timelineData} position={"left"} />
             </TabPanel>
-            <TabPanel value="2" sx={{ width: "70%" }}>
-              <TimelineComponent data={data.timelineData} position={"right"} />
-            </TabPanel>
-            <TabPanel value="3" sx={{ width: "70%" }}>
+            <TabPanel value="3" sx={{ width: "70%", minHeight: "400px" }}>
               <TimelineComponent
                 data={data.timelineData}
                 position={"alternate"}

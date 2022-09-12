@@ -2,6 +2,7 @@ export interface IContentData {
   name: string;
   description: string;
   imageSrc: string;
+  generalInfo: IGeneralInfo;
   timelineData: ITimelineData[];
 }
 export interface ITimelineData {
@@ -9,4 +10,10 @@ export interface ITimelineData {
   dateStart: string;
   dateEnd: string;
   description: string;
+}
+export interface IGeneralInfo {
+  capital: string;
+  population: string;
+  area: string;
+  highestPeak: string;
 }
