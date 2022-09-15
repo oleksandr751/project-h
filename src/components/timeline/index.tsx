@@ -6,24 +6,28 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import { TPositionType } from "../../types";
-interface ITimelineData {
-  name: string;
-  dateStart: string;
-  dateEnd: string;
-  description: string;
-  backgroundColor?: string;
-}
+import { ITimelineData } from "../../interfaces";
+
 interface ITimelineProps {
   data: ITimelineData[];
   position?: TPositionType;
+  icon: any;
 }
-const TimelineComponent: React.FC<ITimelineProps> = ({ data, position }) => {
+const TimelineComponent: React.FC<ITimelineProps> = ({
+  data,
+  position,
+  icon,
+}) => {
   return (
-    <Timeline position={position}>
+    <Timeline position={position} sx={{ width: "100%", padding: 0 }}>
       {data.map((timelineItem, idx) => (
         <TimelineItem key={idx}>
           <TimelineSeparator>
-            <TimelineDot></TimelineDot>
+            <TimelineDot
+              sx={{ backgroundColor: timelineItem.backgroundColor ?? "grey" }}
+            >
+              {icon}
+            </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
@@ -36,7 +40,7 @@ const TimelineComponent: React.FC<ITimelineProps> = ({ data, position }) => {
               <Typography variant="h6">{timelineItem.name}</Typography>
               <Typography>{timelineItem.description}</Typography>
               <Typography variant="caption">
-                {`${timelineItem.dateStart}-${timelineItem.dateEnd}`}
+                {`${timelineItem.ruler}, ${timelineItem.dateStart}-${timelineItem.dateEnd}`}
               </Typography>
             </Paper>
           </TimelineContent>
