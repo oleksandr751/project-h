@@ -7,6 +7,8 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { IContentData } from "../../interfaces/index";
 import GeneralInfo from "./components/general_info";
+import { Link } from "react-router-dom";
+import PublicIcon from "@mui/icons-material/Public";
 
 interface IContentPageProps {
   data: IContentData;
@@ -18,7 +20,11 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
   };
   return (
     <Box>
-      <Button>Go Back</Button>
+      <Button>
+        <Link to={"/countries"} style={{ textDecoration: "none" }}>
+          Go back
+        </Link>
+      </Button>
       <Box style={myStyle.mainDiv}>
         <Box style={myStyle.leftChildDiv as React.CSSProperties}>
           <img
@@ -51,16 +57,21 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
                 <Tab label="Images" value="3" sx={{ width: "300px" }} />
               </TabList>
             </Box>
-            <TabPanel value="1" sx={{ width: "70%", minHeight: "400px" }}>
+            <TabPanel value="1" sx={myStyle.tabStyle}>
               <GeneralInfo data={data.generalInfo} contentType={"country"} />
             </TabPanel>
-            <TabPanel value="2" sx={{ width: "70%", minHeight: "400px" }}>
-              <TimelineComponent data={data.timelineData} position={"left"} />
-            </TabPanel>
-            <TabPanel value="3" sx={{ width: "70%", minHeight: "400px" }}>
+            <TabPanel value="2" sx={myStyle.tabStyle}>
               <TimelineComponent
                 data={data.timelineData}
                 position={"alternate"}
+                icon={<PublicIcon />}
+              />
+            </TabPanel>
+            <TabPanel value="3" sx={myStyle.tabStyle}>
+              <TimelineComponent
+                data={data.timelineData}
+                position={"alternate"}
+                icon={<PublicIcon />}
               />
             </TabPanel>
           </TabContext>
