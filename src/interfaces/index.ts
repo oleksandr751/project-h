@@ -1,4 +1,5 @@
 export interface IContentData {
+  id: string;
   name: string;
   description: string;
   imageSrc: string;
@@ -10,6 +11,8 @@ export interface ITimelineData {
   dateStart: string;
   dateEnd: string;
   description: string;
+  ruler: string;
+  backgroundColor?: string;
 }
 export interface IGeneralInfo {
   capital: string;
