@@ -20,11 +20,9 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
   };
   return (
     <Box>
-      <Button>
-        <Link to={"/countries"} style={{ textDecoration: "none" }}>
-          Go back
-        </Link>
-      </Button>
+      <Link to={"/countries"} style={{ textDecoration: "none" }}>
+        <Button>Go back</Button>
+      </Link>
       <Box style={myStyle.mainDiv}>
         <Box style={myStyle.leftChildDiv as React.CSSProperties}>
           <img
