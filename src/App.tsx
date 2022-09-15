@@ -4,10 +4,14 @@ import { ThemeProvider } from "@mui/material/styles";
 import { countries } from "./data/countries";
 import { useEffect, useState } from "react";
 import { globalTheme } from "./styles/theme";
+import { PASS, SESSION_KEY } from "./config";
 
 function App() {
   const [countriesData, setCountriesData] = useState(countries);
   const [selectedItem, setSelectedItem] = useState(countries[0]);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    window.sessionStorage.getItem(SESSION_KEY) === PASS
+  );
   useEffect(() => {
     const initialCountry = countries.find(
       (obj) => obj["id"] === localStorage.getItem("id")
@@ -20,6 +24,8 @@ function App() {
         value={{
           countriesData,
           setCountriesData,
+          isAuthenticated,
+          setIsAuthenticated,
           selectedItem,
           setSelectedItem,
         }}
