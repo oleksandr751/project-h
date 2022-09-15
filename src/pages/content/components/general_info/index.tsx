@@ -9,9 +9,9 @@ const GeneralInfo: React.FC<IGeneralInfoProps> = ({ data, contentType }) => {
   return (
     <Box>
       <Typography>Capital: {data.capital}</Typography>
-      <Typography>Population:{data.population}</Typography>
-      <Typography>Area:{data.area}</Typography>
-      <Typography>Highest peak:{data.highestPeak}</Typography>
+      <Typography>Population: {data.population}</Typography>
+      <Typography>Area: {data.area}</Typography>
+      <Typography>Highest peak: {data.highestPeak}</Typography>
     </Box>
   );
 };
