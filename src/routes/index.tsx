@@ -10,7 +10,6 @@ const MainRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CountriesListPage />}></Route>
-        <Route path="/countries" element={<CountriesListPage />} />
         <Route path="/timeline" element={<ContentPage data={selectedItem} />} />
       </Routes>
     </BrowserRouter>

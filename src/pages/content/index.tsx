@@ -20,7 +20,7 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
   };
   return (
     <Box>
-      <Link to={"/countries"} style={{ textDecoration: "none" }}>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
         <Button>Go back</Button>
       </Link>
       <Box style={myStyle.mainDiv}>
