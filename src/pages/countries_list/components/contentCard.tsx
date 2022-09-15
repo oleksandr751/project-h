@@ -6,7 +6,12 @@ interface IContentCard {
 }
 const ContentCard: React.FC<IContentCard> = ({ data }) => {
   return (
-    <Card sx={{ width: "300px", height: "110px" }}>
+    <Card
+      sx={{
+        width: "300px",
+        height: "110px",
+      }}
+    >
       <CardContent>
         <Box
           style={{

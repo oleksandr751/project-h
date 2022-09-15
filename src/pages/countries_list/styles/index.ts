@@ -3,9 +3,10 @@ export const countriesListStyle = {
   mainDiv: {
     height: "100vh",
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundImage: `url(${background1})`,
+    background: `url(${background1}) no-repeat`,
     backgroundSize: "100%",
     backgroundColor: "black",
   },
@@ -37,4 +38,13 @@ export const countriesListStyle = {
     borderColor: "#e0fbfc ",
   },
   typography: { color: "#e0fbfc", marginTop: "20px", userSelect: "none" },
+  link: {
+    textDecoration: "none",
+    marginTop: "20px",
+  },
+  iconList: {
+    width: "90%",
+    display: "flex",
+    justifyContent: "flex-end",
+  },
 };

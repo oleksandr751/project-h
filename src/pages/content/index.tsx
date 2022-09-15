@@ -23,29 +23,23 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
       <Link to={"/"} style={{ textDecoration: "none" }}>
         <Button>Go back</Button>
       </Link>
-      <Box style={myStyle.mainDiv}>
-        <Box style={myStyle.leftChildDiv as React.CSSProperties}>
+      <Box sx={myStyle.mainDiv}>
+        <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
           <img
             src={data.imageSrc}
             alt={data.name}
             width="300px"
             height="200px"
           ></img>
-          <Box style={myStyle.contentInfo}>
+          <Box sx={myStyle.contentInfo}>
             <Typography variant="h6">{data.name}</Typography>
             <Typography>{data.description}</Typography>
           </Box>
         </Box>
-        <Box
-          style={myStyle.rightChildDiv as React.CSSProperties}
-          sx={{ borderLeft: 1, borderColor: "divider" }}
-        >
+        <Box sx={myStyle.rightChildDiv as React.CSSProperties}>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <TabList
-                onChange={handleChange}
-                aria-label="lab API tabs example"
-              >
+              <TabList onChange={handleChange}>
                 <Tab label="Overall Info" value="1" sx={{ width: "300px" }} />
                 <Tab
                   label="History Timeline"

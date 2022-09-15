@@ -22,6 +22,8 @@ export const myStyle = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    borderLeft: 3,
+    borderColor: "divider",
   },
   contentInfo: {
     marginLeft: "50px",
@@ -37,14 +39,14 @@ export const myStyle = {
       backgroundColor: "#F5F5F5",
     },
     "&::-webkit-scrollbar-track": {
-      "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.3);",
+      WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3);",
       backgroundColor: "#F5F5F5",
       borderRadius: "10px",
     },
     "&::-webkit-scrollbar-thumb": {
       borderRadius: "10px",
-      "&::-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,.3)",
-      backgroundColor: "#294EA0",
+      "&::WebkitBoxShadow": "inset 0 0 6px rgba(0,0,0,.3)",
+      backgroundColor: "#138DD0",
     },
   },
 };
