@@ -30,12 +30,26 @@ export const countriesListStyle = {
   rightChildDiv: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center",
-    height: "50%",
     width: "50%",
     borderLeft: 5,
     borderColor: "#e0fbfc ",
+    height: "400px",
+    overflow: "auto",
+    "&::-webkit-scrollbar": {
+      width: "10px",
+      backgroundColor: "#138DD0",
+    },
+    "&::-webkit-scrollbar-track": {
+      WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3);",
+      backgroundColor: "#138DD0",
+      borderRadius: "10px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      borderRadius: "10px",
+      "&::WebkitBoxShadow": "inset 0 0 6px rgba(0,0,0,.3)",
+      backgroundColor: "#F5F5F5",
+    },
   },
   typography: { color: "#e0fbfc", marginTop: "20px", userSelect: "none" },
   link: {
