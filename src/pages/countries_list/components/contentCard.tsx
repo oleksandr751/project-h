@@ -19,7 +19,7 @@ const ContentCard: React.FC<IContentCard> = ({ data }) => {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
-            width: "50%",
+            // width: "100%",
           }}
         >
           <Typography gutterBottom variant="h5" component="div">
