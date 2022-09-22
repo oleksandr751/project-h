@@ -7,7 +7,8 @@ import { globalTheme } from "./styles/theme";
 import { PASS, SESSION_KEY } from "./config";
 
 function App() {
-  const [countriesData, setCountriesData] = useState(countries);
+  const sortedCountries = countries.sort((a, b) => (a.name < b.name ? -1 : 1));
+  const [countriesData, setCountriesData] = useState(sortedCountries);
   const [selectedItem, setSelectedItem] = useState(countries[0]);
   const [isAuthenticated, setIsAuthenticated] = useState(
     window.sessionStorage.getItem(SESSION_KEY) === PASS
