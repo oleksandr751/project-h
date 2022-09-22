@@ -20,3 +20,13 @@ export interface IGeneralInfo {
   area: string;
   highestPeak: string;
 }
+export interface IGreatPeople {
+  countryID: string;
+  countryName: string;
+  dateStart: string;
+  dateEnd: string;
+  imageSrc: string;
+  name: string;
+  occupation: string;
+  tags: string[];
+}

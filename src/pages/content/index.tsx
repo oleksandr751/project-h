@@ -9,6 +9,8 @@ import { IContentData } from "../../interfaces/index";
 import GeneralInfo from "./components/general_info";
 import { Link } from "react-router-dom";
 import PublicIcon from "@mui/icons-material/Public";
+import GreatPeople from "./components/great_people";
+import { greatPeople } from "../../data/greatPeople";
 
 interface IContentPageProps {
   data: IContentData;
@@ -18,6 +20,9 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+  const filteredGreatPeople = greatPeople
+    .filter((people) => people.countryID === data.id)
+    .sort((a, b) => (a.name < b.name ? -1 : 1));
   return (
     <Box>
       <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -46,7 +51,7 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
                   value="2"
                   sx={{ width: "300px" }}
                 />
-                <Tab label="Images" value="3" sx={{ width: "300px" }} />
+                <Tab label="Great People" value="3" sx={{ width: "300px" }} />
               </TabList>
             </Box>
             <TabPanel value="1" sx={myStyle.tabStyle}>
@@ -60,11 +65,7 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
               />
             </TabPanel>
             <TabPanel value="3" sx={myStyle.tabStyle}>
-              <TimelineComponent
-                data={data.timelineData}
-                position={"alternate"}
-                icon={<PublicIcon />}
-              />
+              <GreatPeople data={filteredGreatPeople} />
             </TabPanel>
           </TabContext>
         </Box>
