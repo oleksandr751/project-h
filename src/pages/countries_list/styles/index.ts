@@ -31,25 +31,10 @@ export const countriesListStyle = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "space-between",
     width: "50%",
     borderLeft: 5,
     borderColor: "#e0fbfc ",
-    height: "400px",
-    overflow: "auto",
-    "&::-webkit-scrollbar": {
-      width: "10px",
-      backgroundColor: "#138DD0",
-    },
-    "&::-webkit-scrollbar-track": {
-      WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3);",
-      backgroundColor: "#138DD0",
-      borderRadius: "10px",
-    },
-    "&::-webkit-scrollbar-thumb": {
-      borderRadius: "10px",
-      "&::WebkitBoxShadow": "inset 0 0 6px rgba(0,0,0,.3)",
-      backgroundColor: "#F5F5F5",
-    },
   },
   typography: { color: "#e0fbfc", marginTop: "20px", userSelect: "none" },
   link: {
@@ -60,5 +45,28 @@ export const countriesListStyle = {
     width: "90%",
     display: "flex",
     justifyContent: "flex-end",
+  },
+  countriesList: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+    height: "265px",
+    marginTop: "30px",
+    overflow: "auto",
+    "&::-webkit-scrollbar": {
+      width: "10px",
+      backgroundColor: "#138DD0",
+    },
+    "&::-webkit-scrollbar-track": {
+      // WebkitBoxShadow: "inset 0 0 10px rgba(0,0,0,0.3);",
+      backgroundColor: "#138DD0",
+      borderRadius: "10px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      borderRadius: "10px",
+      "&::WebkitBoxShadow": "inset 0 0 6px rgba(0,0,0,.3)",
+      backgroundColor: "#F5F5F5",
+    },
   },
 };
