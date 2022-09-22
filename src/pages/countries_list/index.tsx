@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { MainContext } from "../../context/index";
 import { Box, IconButton, Typography } from "@mui/material";
 import { countriesListStyle } from "./styles";
-import ContentCard from "./components/contentCard";
+import ContentCard from "../../components/contentCard/contentCard";
 import { IContentData } from "../../interfaces/index";
 import IconList from "./components/iconList";
 import AuthForm from "../../components/auth/authForm";
@@ -69,7 +69,11 @@ const CountriesListPage = () => {
               />
               <Box sx={countriesListStyle.countriesList as React.CSSProperties}>
                 {countries
-                  .filter((country) => country.name.includes(searchBarText))
+                  .filter((country) =>
+                    country.name
+                      .toLowerCase()
+                      .includes(searchBarText.toLowerCase())
+                  )
                   .map((country) => (
                     <Link
                       key={country.id}
@@ -79,7 +83,7 @@ const CountriesListPage = () => {
                         handleClick(country);
                       }}
                     >
-                      <ContentCard data={country} />
+                      <ContentCard countryData={country} type="country" />
                     </Link>
                   ))}
               </Box>
