@@ -10,10 +10,11 @@ import { IContentData } from "../../interfaces/index";
 import IconList from "./components/iconList";
 import AuthForm from "../../components/auth/authForm";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
+import SearchBar from "../../components/searchBar";
 const CountriesListPage = () => {
   const { setSelectedItem } = useContext(MainContext);
   const [loginAttempt, setLoginAttempt] = useState(false);
+  const [searchBarText, setSearchBarText] = useState("");
   const handleClick = (country: IContentData) => {
     setSelectedItem(country);
     localStorage.setItem("id", country.id);
@@ -59,18 +60,26 @@ const CountriesListPage = () => {
             <AuthForm setLoginAttempt={setLoginAttempt} />
           ) : (
             <>
-              {countries.map((country) => (
-                <Link
-                  key={country.id}
-                  to={"/timeline"}
-                  style={countriesListStyle.link as React.CSSProperties}
-                  onClick={() => {
-                    handleClick(country);
-                  }}
-                >
-                  <ContentCard data={country} />
-                </Link>
-              ))}
+              <SearchBar
+                searchBarText={searchBarText}
+                setSearchBarText={setSearchBarText}
+              />
+              <Box sx={countriesListStyle.countriesList as React.CSSProperties}>
+                {countries
+                  .filter((country) => country.name.includes(searchBarText))
+                  .map((country) => (
+                    <Link
+                      key={country.id}
+                      to={"/timeline"}
+                      style={countriesListStyle.link as React.CSSProperties}
+                      onClick={() => {
+                        handleClick(country);
+                      }}
+                    >
+                      <ContentCard data={country} />
+                    </Link>
+                  ))}
+              </Box>
             </>
           )}
         </Box>
