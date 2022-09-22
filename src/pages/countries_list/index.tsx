@@ -32,6 +32,9 @@ const CountriesListPage = () => {
           {loginAttempt ? (
             <>
               <Typography variant="h3" sx={countriesListStyle.typography}>
+                Sign in to receive admin privileges
+              </Typography>
+              <Typography variant="h5" sx={countriesListStyle.typography}>
                 Press arrow to go back
               </Typography>
               <IconButton
