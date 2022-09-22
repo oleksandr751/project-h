@@ -23,6 +23,7 @@ export const countriesListStyle = {
     padding: "40px",
     flexDirection: "column",
     justifyContent: "center",
+    textAlign: "center",
     alignItems: "center",
     height: "100%",
     width: "50%",
@@ -54,6 +55,7 @@ export const countriesListStyle = {
     width: "100%",
     height: "265px",
     marginTop: "30px",
+    paddingBottom: "20px",
     overflow: "auto",
     "&::-webkit-scrollbar": {
       width: "10px",
