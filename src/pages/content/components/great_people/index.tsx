@@ -27,8 +27,8 @@ const GreatPeople: React.FC<IGreatPeopleComponent> = ({ data }) => {
         .filter((country) =>
           country.name.toLowerCase().includes(searchBarText.toLowerCase())
         )
-        .map((person) => (
-          <ContentCard personData={person} type={"person"} />
+        .map((person, idx) => (
+          <ContentCard personData={person} type={"person"} key={idx} />
         ))}
     </Box>
   );
