@@ -7,7 +7,7 @@ export const myStyle = {
   leftChildDiv: {
     position: "sticky",
     top: 0,
-    width: "40%",
+    width: "30%",
     height: "400px",
     display: "flex",
     // flexDirection: "row",
@@ -16,7 +16,7 @@ export const myStyle = {
     alignItems: "center",
   },
   rightChildDiv: {
-    width: "60%",
+    width: "70%",
     display: "flex",
     paddingTop: "100px",
     flexDirection: "column",
