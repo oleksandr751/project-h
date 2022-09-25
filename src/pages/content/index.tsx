@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Box, Button, Tab, Typography } from "@mui/material";
 import TimelineComponent from "../../components/timeline";
 import { myStyle } from "./styles";
@@ -20,9 +20,14 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
-  const filteredGreatPeople = greatPeople
-    .filter((people) => people.countryID === data.id)
-    .sort((a, b) => (a.name < b.name ? -1 : 1));
+  const filteredGreatPeople = useMemo(
+    () =>
+      greatPeople
+        .filter((people) => people.countryID === data.id)
+        .sort((a, b) => (a.name < b.name ? -1 : 1)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [greatPeople]
+  );
   return (
     <Box>
       <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -55,7 +60,7 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
               </TabList>
             </Box>
             <TabPanel value="1" sx={myStyle.tabStyle}>
-              <GeneralInfo data={data.generalInfo} contentType={"country"} />
+              <GeneralInfo data={data} contentType={"country"} />
             </TabPanel>
             <TabPanel value="2" sx={myStyle.tabStyle}>
               <TimelineComponent
@@ -75,3 +80,11 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
 };
 
 export default ContentPage;
+
+// const GreatPeopleComponent = React.lazy(
+//   () => import("./components/great_people")
+// );
+// const TimelineComponentLazy = React.lazy(
+//   () => import("../../components/timeline")
+// );
+// <Suspense fallback={<Loading />}></Suspense>
