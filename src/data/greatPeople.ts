@@ -1,9 +1,9 @@
-import beethoven_src from "../data/greatPeople_images/Beethoven.jpg";
-import bach_src from "../data/greatPeople_images/Bach.png";
-import brahms_src from "../data/greatPeople_images/Brahms.jpg";
-import einstein_src from "../data/greatPeople_images/Einstein.jpg";
-import goethe_src from "../data/greatPeople_images/Goethe.jpg";
-import mozart_src from "../data/greatPeople_images/Mozart.jpg";
+import beethoven_src from "../data/greatPeople_images/Beethoven-min.jpg";
+import bach_src from "../data/greatPeople_images/Bach-min.png";
+import brahms_src from "../data/greatPeople_images/Brahms-min.jpg";
+import einstein_src from "../data/greatPeople_images/Einstein-min.jpg";
+import goethe_src from "../data/greatPeople_images/Goethe-min.jpg";
+import mozart_src from "../data/greatPeople_images/Mozart-min.jpg";
 export const greatPeople = [
   {
     countryID: "1",

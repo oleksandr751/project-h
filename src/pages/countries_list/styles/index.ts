@@ -1,4 +1,4 @@
-import background1 from "../../../images/background1.jpg";
+import background1 from "../../../images/background1-min.jpg";
 export const countriesListStyle = {
   mainDiv: {
     height: "100vh",
@@ -34,7 +34,7 @@ export const countriesListStyle = {
     alignItems: "center",
     justifyContent: "center",
     width: "50%",
-    height: "350px",
+    height: "400px",
     borderLeft: 5,
     borderColor: "#e0fbfc ",
   },
@@ -53,7 +53,7 @@ export const countriesListStyle = {
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    height: "265px",
+    height: "300px",
     marginTop: "30px",
     paddingBottom: "20px",
     overflow: "auto",
