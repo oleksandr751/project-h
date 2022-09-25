@@ -32,6 +32,7 @@ const TagComponent: React.FC<ITagComponent> = ({ tagName }) => {
           )
         }
         label={tagName}
+        size="small"
       />
       {/* <Chip icon={<FaceIcon />} label="With Icon" variant="outlined" /> */}
     </Stack>
