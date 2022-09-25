@@ -19,12 +19,20 @@ const ContentCardPerson: React.FC<IContentCardCountry> = ({ data }) => {
           textAlign: "end",
         }}
       >
-        <img
+        {/* <img
           src={data?.imageSrc}
           alt={data?.name}
           width="98px"
           height="121px"
-        ></img>
+        ></img> */}
+        <Box
+          sx={{
+            background: `url(${data?.imageSrc}) no-repeat`,
+            backgroundSize: "100%",
+            width: "98px",
+            height: "121px",
+          }}
+        ></Box>
         <Box
           sx={{
             display: "flex",
@@ -47,8 +55,8 @@ const ContentCardPerson: React.FC<IContentCardCountry> = ({ data }) => {
               justifyContent: "space-between",
             }}
           >
-            {data?.tags.map((tag) => (
-              <Box sx={{ marginLeft: "7px" }}>
+            {data?.tags.map((tag, idx) => (
+              <Box sx={{ marginLeft: "7px" }} key={idx}>
                 <TagComponent tagName={tag} />
               </Box>
             ))}
