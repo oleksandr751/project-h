@@ -17,6 +17,7 @@ export const myStyle = {
   },
   rightChildDiv: {
     width: "70%",
+    height: "100%",
     display: "flex",
     paddingTop: "100px",
     flexDirection: "column",
