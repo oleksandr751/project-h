@@ -1,33 +1,39 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Box, Button, Tab, Typography } from "@mui/material";
 import TimelineComponent from "../../components/timeline";
 import { myStyle } from "./styles";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { IContentData } from "../../interfaces/index";
 import GeneralInfo from "./components/general_info";
 import { Link } from "react-router-dom";
 import PublicIcon from "@mui/icons-material/Public";
 import GreatPeople from "./components/great_people";
-import { greatPeople } from "../../data/greatPeople";
+import { useEffect, useContext } from "react";
+import { useGreatPeopleData } from "../../hooks/greatPeople.hooks";
+import Loading from "../../components/loading/index";
+import { MainContext } from "../../context/index";
+import { useCountriesData } from "../../hooks/countries.hook";
 
-interface IContentPageProps {
-  data: IContentData;
-}
-const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
+const ContentPage = () => {
   const [value, setValue] = useState("1");
+  const [loading, setLoading] = useState(false);
+  const { greatPeople, selectedItem } = useContext(MainContext);
+  const { getGreatPeople } = useGreatPeopleData();
+  const { getCountry } = useCountriesData();
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
-  const filteredGreatPeople = useMemo(
-    () =>
-      greatPeople
-        .filter((people) => people.countryID === data.id)
-        .sort((a, b) => (a.name < b.name ? -1 : 1)),
+  useEffect(() => {
+    getCountry(localStorage.getItem("id"));
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [greatPeople]
-  );
+  }, []);
+  useEffect(() => {
+    getGreatPeople(setLoading, selectedItem?.name);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedItem]);
+
   return (
     <Box>
       <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -36,14 +42,14 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
       <Box sx={myStyle.mainDiv}>
         <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
           <img
-            src={data.imageSrc}
-            alt={data.name}
+            src={selectedItem?.imageSrc}
+            alt={selectedItem?.name}
             width="300px"
             height="200px"
           ></img>
           <Box sx={myStyle.contentInfo}>
-            <Typography variant="h6">{data.name}</Typography>
-            <Typography>{data.description}</Typography>
+            <Typography variant="h6">{selectedItem?.name}</Typography>
+            <Typography>{selectedItem?.description}</Typography>
           </Box>
         </Box>
         <Box sx={myStyle.rightChildDiv as React.CSSProperties}>
@@ -60,17 +66,21 @@ const ContentPage: React.FC<IContentPageProps> = ({ data }) => {
               </TabList>
             </Box>
             <TabPanel value="1" sx={myStyle.tabStyle}>
-              <GeneralInfo data={data} contentType={"country"} />
+              <GeneralInfo data={selectedItem} contentType={"country"} />
             </TabPanel>
             <TabPanel value="2" sx={myStyle.tabStyle}>
               <TimelineComponent
-                data={data.timelineData}
+                data={selectedItem?.timelineData}
                 position={"alternate"}
                 icon={<PublicIcon />}
               />
             </TabPanel>
             <TabPanel value="3" sx={myStyle.tabStyle}>
-              <GreatPeople data={filteredGreatPeople} />
+              {loading ? (
+                <Loading type="primary" />
+              ) : (
+                <GreatPeople data={greatPeople} />
+              )}
             </TabPanel>
           </TabContext>
         </Box>

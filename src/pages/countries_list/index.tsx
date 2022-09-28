@@ -1,7 +1,6 @@
 import React from "react";
-import { countries } from "../../data/countries";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { MainContext } from "../../context/index";
 import { Box, IconButton, Typography } from "@mui/material";
 import { countriesListStyle } from "./styles";
@@ -11,14 +10,25 @@ import IconList from "./components/iconList";
 import AuthForm from "../../components/auth/authForm";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SearchBar from "../../components/searchBar";
+import { useCountriesData } from "../../hooks/countries.hook";
+import Loading from "../../components/loading";
+
 const CountriesListPage = () => {
-  const { setSelectedItem } = useContext(MainContext);
+  const { setSelectedItem, countriesData } = useContext(MainContext);
+  const { getCountries } = useCountriesData();
   const [loginAttempt, setLoginAttempt] = useState(false);
   const [searchBarText, setSearchBarText] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleClick = (country: IContentData) => {
     setSelectedItem(country);
     localStorage.setItem("id", country.id);
   };
+  useEffect(() => {
+    getCountries(setLoading);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Box sx={countriesListStyle.mainDiv as React.CSSProperties}>
       <Box sx={countriesListStyle.iconList}>
@@ -68,24 +78,30 @@ const CountriesListPage = () => {
                 setSearchBarText={setSearchBarText}
               />
               <Box sx={countriesListStyle.countriesList as React.CSSProperties}>
-                {countries
-                  .filter((country) =>
-                    country.name
-                      .toLowerCase()
-                      .includes(searchBarText.toLowerCase())
-                  )
-                  .map((country) => (
-                    <Link
-                      key={country.id}
-                      to={"/timeline"}
-                      style={countriesListStyle.link as React.CSSProperties}
-                      onClick={() => {
-                        handleClick(country);
-                      }}
-                    >
-                      <ContentCard countryData={country} type="country" />
-                    </Link>
-                  ))}
+                {loading ? (
+                  <Loading type="secondary" />
+                ) : (
+                  <>
+                    {countriesData
+                      .filter((country) =>
+                        country.name
+                          .toLowerCase()
+                          .includes(searchBarText.toLowerCase())
+                      )
+                      .map((country) => (
+                        <Link
+                          key={country.id}
+                          to={"/timeline"}
+                          style={countriesListStyle.link as React.CSSProperties}
+                          onClick={() => {
+                            handleClick(country);
+                          }}
+                        >
+                          <ContentCard countryData={country} type="country" />
+                        </Link>
+                      ))}
+                  </>
+                )}
               </Box>
             </>
           )}
