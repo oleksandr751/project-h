@@ -1,16 +1,10 @@
-import beethoven_src from "../data/greatPeople_images/Beethoven-min.jpg";
-import bach_src from "../data/greatPeople_images/Bach-min.png";
-import brahms_src from "../data/greatPeople_images/Brahms-min.jpg";
-import einstein_src from "../data/greatPeople_images/Einstein-min.jpg";
-import goethe_src from "../data/greatPeople_images/Goethe-min.jpg";
-import mozart_src from "../data/greatPeople_images/Mozart-min.jpg";
 export const greatPeople = [
   {
     countryID: "1",
     countryName: "Germany",
     dateStart: "1770",
     dateEnd: "1827",
-    imageSrc: beethoven_src,
+    imageSrc: "https://live.staticflickr.com/65535/52390364877_f5535950e1.jpg",
     name: "Ludwig Van Beethoven",
     occupation: "Composer",
     tags: ["Music", "Composer"],
@@ -20,7 +14,7 @@ export const greatPeople = [
     countryName: "Austria",
     dateStart: "1756",
     dateEnd: "1791",
-    imageSrc: mozart_src,
+    imageSrc: "https://live.staticflickr.com/65535/52391714390_e3f0366fa9.jpg",
     name: "Wolfgang Amadeus Mozart",
     occupation: "Composer",
     tags: ["Music", "Composer"],
@@ -30,7 +24,7 @@ export const greatPeople = [
     countryName: "Germany",
     dateStart: "1685",
     dateEnd: "1750",
-    imageSrc: bach_src,
+    imageSrc: "https://live.staticflickr.com/65535/52391286081_5a7443c4db.jpg",
     name: "Johann Sebastian Bach",
     occupation: "Composer",
     tags: ["Music", "Composer"],
@@ -40,7 +34,8 @@ export const greatPeople = [
     countryName: "Germany",
     dateStart: "1879",
     dateEnd: "1955",
-    imageSrc: einstein_src,
+    imageSrc:
+      "https://live.staticflickr.com/65535/52391596129_6ecf915c12_z.jpg",
     name: "Albert Einstein",
     occupation: "Scientist",
     tags: ["Science", "Physics"],
@@ -50,7 +45,8 @@ export const greatPeople = [
     dateStart: "1833",
     dateEnd: "1897",
     countryName: "Germany",
-    imageSrc: brahms_src,
+    imageSrc:
+      "https://www.flickr.com/photos/196591966@N02/52391529528/in/dateposted-public/",
     name: "Johannes Brahms",
     occupation: "Composer",
     tags: ["Music", "Composer"],
@@ -60,7 +56,8 @@ export const greatPeople = [
     countryName: "Germany",
     dateStart: "1749",
     dateEnd: "1832",
-    imageSrc: goethe_src,
+    imageSrc:
+      "https://www.flickr.com/photos/196591966@N02/52390364512/in/dateposted-public/",
     name: "Johann Wolfgang Von Goethe",
     occupation: "Writer",
     tags: ["Poet", "Writer"],

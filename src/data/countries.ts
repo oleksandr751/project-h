@@ -1,14 +1,10 @@
-import ukraine_src from "../data/country_images/ukraine.jpg";
-import germany_src from "../data/country_images/germany.png";
-import japan_src from "../data/country_images/japan.png";
-import greatBritain_src from "../data/country_images/greatBritain.png";
-
 export const countries = [
   {
     id: "0",
     name: "Ukraine",
     description: "Description here...",
-    imageSrc: ukraine_src,
+    imageSrc:
+      "https://live.staticflickr.com/65535/52390936166_00d644b5a9_z.jpg",
     generalInfo: {
       capital: "Kyiv",
       population: "40 000 000 people",
@@ -127,7 +123,8 @@ export const countries = [
     id: "1",
     name: "Germany",
     description: "Description here...",
-    imageSrc: germany_src,
+    imageSrc:
+      "https://live.staticflickr.com/65535/52390014867_9995e255b3_z.jpg",
     generalInfo: {
       capital: "Berlin",
       population: "80 000 000 people",
@@ -277,7 +274,8 @@ export const countries = [
     id: "2",
     name: "Great Britain",
     description: "Description here...",
-    imageSrc: greatBritain_src,
+    imageSrc:
+      "https://live.staticflickr.com/65535/52391246764_e1198603d0_b.jpg",
     generalInfo: {
       capital: "London",
       population: "67 000 000 people",
@@ -396,7 +394,8 @@ export const countries = [
     id: "3",
     name: "Japan",
     description: "Description here...",
-    imageSrc: japan_src,
+    imageSrc:
+      "https://live.staticflickr.com/65535/52391364000_ba19b66b23_z.jpg",
     generalInfo: {
       capital: "Tokyo",
       population: "125 800 000 people",
