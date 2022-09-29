@@ -1,12 +1,17 @@
-import { CardContent, Typography } from "@mui/material";
+import { CardContent, IconButton, Typography } from "@mui/material";
 import React from "react";
 import Box from "@mui/material/Box";
 import { IGreatPeople } from "../../interfaces/index";
+import EditIcon from "@mui/icons-material/Edit";
 import TagComponent from "../tag";
+import { MainContext } from "../../context/index";
+import { useContext } from "react";
 interface IContentCardCountry {
   data?: IGreatPeople;
 }
 const ContentCardPerson: React.FC<IContentCardCountry> = ({ data }) => {
+  const { isAuthenticated, setEditAttempt, setGreatPerson } =
+    useContext(MainContext);
   return (
     <CardContent>
       <Box
@@ -19,12 +24,6 @@ const ContentCardPerson: React.FC<IContentCardCountry> = ({ data }) => {
           textAlign: "end",
         }}
       >
-        {/* <img
-          src={data?.imageSrc}
-          alt={data?.name}
-          width="98px"
-          height="121px"
-        ></img> */}
         <Box
           sx={{
             background: `url(${data?.imageSrc}) no-repeat`,
@@ -32,7 +31,7 @@ const ContentCardPerson: React.FC<IContentCardCountry> = ({ data }) => {
             width: "98px",
             height: "121px",
           }}
-        ></Box>
+        />
         <Box
           sx={{
             display: "flex",
@@ -46,6 +45,9 @@ const ContentCardPerson: React.FC<IContentCardCountry> = ({ data }) => {
         >
           <Typography gutterBottom variant="body1" component="div">
             {data?.name}
+          </Typography>
+          <Typography gutterBottom variant="caption" component="div">
+            {data?.occupation}
           </Typography>
           <Typography variant="caption">{`${data?.dateStart}-${data?.dateEnd}`}</Typography>
           <Box
@@ -62,6 +64,16 @@ const ContentCardPerson: React.FC<IContentCardCountry> = ({ data }) => {
             ))}
           </Box>
         </Box>
+        {isAuthenticated && (
+          <IconButton
+            onClick={() => {
+              setGreatPerson(data);
+              setEditAttempt(true);
+            }}
+          >
+            <EditIcon />
+          </IconButton>
+        )}
       </Box>
     </CardContent>
   );
