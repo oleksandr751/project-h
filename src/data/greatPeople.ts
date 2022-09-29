@@ -72,4 +72,14 @@ export const greatPeople = [
     occupation: "Political leader",
     tags: ["Politics", "Military"],
   },
+  {
+    countryID: "5",
+    countryName: "Great Britain",
+    dateStart: "1874",
+    dateEnd: "1965",
+    imageSrc: "https://live.staticflickr.com/65535/52392486378_708613fb7d.jpg",
+    name: "Winston Churchill",
+    occupation: "Political leader",
+    tags: ["Politics", "Military"],
+  },
 ];
