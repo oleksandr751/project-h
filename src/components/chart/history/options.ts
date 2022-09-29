@@ -42,7 +42,7 @@ export const computeOptions = (
         type: type,
         animation: true,
         itemStyle: {
-          color: "#3a0ca3",
+          color: "#138DD0",
         },
         data: valueList,
       },
