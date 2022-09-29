@@ -8,6 +8,8 @@ import { PASS, SESSION_KEY } from "./config";
 function App() {
   const [countriesData, setCountriesData] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
+  const [greatPerson, setGreatPerson] = useState({});
+  const [editAttempt, setEditAttempt] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(
     window.sessionStorage.getItem(SESSION_KEY) === PASS
   );
@@ -16,6 +18,10 @@ function App() {
     <>
       <MainContext.Provider
         value={{
+          editAttempt,
+          setEditAttempt,
+          greatPerson,
+          setGreatPerson,
           greatPeople,
           setGreatPeople,
           countriesData,
