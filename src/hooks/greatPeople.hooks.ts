@@ -25,13 +25,70 @@ export const useGreatPeopleData = () => {
       console.log(response);
     } catch (error) {}
   };
-  const addGreatPeople = async (greatPeople: any) => {
+  const updateGreatPerson = async (
+    greatPeople: any,
+    setOpenAlert: (par: boolean) => void,
+    setAlertMessage: (par: string) => void,
+    setAlertType: (par: string) => void
+  ) => {
+    try {
+      const response = await request(
+        `${API_URL}/api/greatPeople/update`,
+        "PUT",
+        {
+          data: greatPeople,
+        }
+      );
+      setGreatPeople(
+        response.data.sort((a: IGreatPeople, b: IGreatPeople) =>
+          a.name < b.name ? -1 : 1
+        )
+      );
+      setAlertMessage(response.message);
+      setAlertType("success");
+      setOpenAlert(true);
+      setTimeout(() => {
+        setOpenAlert(false);
+      }, 5000);
+    } catch (error: any) {
+      setAlertType("error");
+      setAlertMessage(error.message);
+      setOpenAlert(true);
+      setTimeout(() => {
+        setOpenAlert(false);
+      }, 5000);
+    }
+  };
+  const addGreatPeople = async (
+    greatPeople: any,
+    setOpenAlert: (par: boolean) => void,
+    setAlertMessage: (par: string) => void,
+    setAlertType: (par: string) => void
+  ) => {
     try {
       const response = await request(`${API_URL}/api/greatPeople/add`, "POST", {
         data: greatPeople,
       });
+      setGreatPeople(
+        response.data.sort((a: IGreatPeople, b: IGreatPeople) =>
+          a.name < b.name ? -1 : 1
+        )
+      );
+      setAlertMessage(response.message);
+      setAlertType("success");
+      setOpenAlert(true);
+      setTimeout(() => {
+        setOpenAlert(false);
+      }, 5000);
       console.log(response);
-    } catch (error) {}
+    } catch (error: any) {
+      setAlertType("error");
+      setAlertMessage(error.message);
+      setOpenAlert(true);
+      setTimeout(() => {
+        setOpenAlert(false);
+      }, 5000);
+    }
   };
-  return { getGreatPeople, addGreatPeople };
+  return { getGreatPeople, addGreatPeople, updateGreatPerson };
 };
