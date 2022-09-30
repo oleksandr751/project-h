@@ -32,7 +32,7 @@ export const myStyle = {
   tabStyle: {
     marginTop: "40px",
     paddingRight: "40px",
-    width: "80%",
+    width: "95%",
     height: "700px",
     overflow: "auto",
     "&::-webkit-scrollbar": {

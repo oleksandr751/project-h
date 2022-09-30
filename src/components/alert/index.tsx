@@ -15,9 +15,10 @@ const AlertComponent: React.FC<IAlertComponent> = ({
 }) => {
   return (
     <Box>
-      <Collapse in={open} orientation="vertical" collapsedSize={"0px"}>
+      <Collapse in={open} orientation="vertical">
         <Alert
           severity={type}
+          color={type === "error" ? "error" : "info"}
           action={
             <IconButton
               aria-label="close"
