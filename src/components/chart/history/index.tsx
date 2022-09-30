@@ -31,7 +31,7 @@ echarts.use([
   DataZoomComponent,
 ]);
 interface DataChartTypes {
-  chartName: string;
+  chartName?: string;
   type: string;
   data: { value: number; timestamp: string }[];
 }
@@ -45,7 +45,7 @@ const DataChart: React.FC<DataChartTypes> = ({ chartName, type, data }) => {
   const dateList = useMemo(
     () =>
       data?.map(function (item) {
-        return item.timestamp;
+        return item?.timestamp;
       }),
     [data]
   );
@@ -59,7 +59,9 @@ const DataChart: React.FC<DataChartTypes> = ({ chartName, type, data }) => {
   const handleResize = () => {
     if (myChart) myChart.dispose();
     myChart = echarts.init(comp.current);
-    myChart.setOption(computeOptions(dateList, valueList, type, chartName));
+    myChart.setOption(
+      computeOptions(dateList, valueList, type, chartName ?? "")
+    );
     myChart.on("click", (params: any) => {
       console.log(params);
     });
@@ -74,7 +76,9 @@ const DataChart: React.FC<DataChartTypes> = ({ chartName, type, data }) => {
   useEffect(() => {
     if (myChart) myChart.dispose();
     myChart = echarts.init(comp.current);
-    myChart.setOption(computeOptions(dateList, valueList, type, chartName));
+    myChart.setOption(
+      computeOptions(dateList, valueList, type, chartName ?? "")
+    );
     myChart.on("click", (params: any) => {
       console.log(params);
     });
