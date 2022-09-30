@@ -16,7 +16,7 @@ import ImageIcon from "@mui/icons-material/Image";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import WorkIcon from "@mui/icons-material/Work";
 import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
-import { Box } from "@mui/material";
+import { Box, Alert } from "@mui/material";
 import { useGreatPeopleData } from "../../../../hooks/greatPeople.hooks";
 import { MainContext } from "../../../../context/index";
 
@@ -62,6 +62,7 @@ const GreatPersonForm: React.FC<IGreatPersonForm> = ({
         };
   const { addGreatPeople, updateGreatPerson } = useGreatPeopleData();
   const [addForm, setAddForm] = useState<IGreatPeople>(initialState);
+  const [error, setError] = useState(false);
   const tags = [
     "Poet",
     "Writer",
@@ -74,6 +75,7 @@ const GreatPersonForm: React.FC<IGreatPersonForm> = ({
   ];
 
   const handleChange = (e: any) => {
+    setError(false);
     setAddForm({ ...addForm, [e.target.name]: e.target.value });
   };
   return (
@@ -193,19 +195,29 @@ const GreatPersonForm: React.FC<IGreatPersonForm> = ({
           />
         )}
       />
-      {/* {error && <Alert severity="error">Wrong log in data!</Alert>} */}
+      {error && <Alert severity="error">Please fill in all the fields</Alert>}
       {action === "add" ? (
         <Box>
           <Button
             sx={{ marginRight: "20px" }}
             onClick={() => {
-              addGreatPeople(
-                addForm,
-                setOpenAlert,
-                setAlertMessage,
-                setAlertType
-              );
-              setAddAttempt(false);
+              if (
+                !addForm.dateStart ||
+                !addForm.dateEnd ||
+                !addForm.name ||
+                !addForm.occupation ||
+                !addForm.tags
+              ) {
+                setError(true);
+              } else {
+                addGreatPeople(
+                  addForm,
+                  setOpenAlert,
+                  setAlertMessage,
+                  setAlertType
+                );
+                setAddAttempt(false);
+              }
             }}
             variant="contained"
             style={{ marginTop: "10px", backgroundColor: "#138DD0" }}
@@ -227,13 +239,23 @@ const GreatPersonForm: React.FC<IGreatPersonForm> = ({
           <Button
             sx={{ marginRight: "20px" }}
             onClick={() => {
-              updateGreatPerson(
-                addForm,
-                setOpenAlert,
-                setAlertMessage,
-                setAlertType
-              );
-              setEditAttempt(false);
+              if (
+                !addForm.dateStart ||
+                !addForm.dateEnd ||
+                !addForm.name ||
+                !addForm.occupation ||
+                !addForm.tags
+              ) {
+                setError(true);
+              } else {
+                updateGreatPerson(
+                  addForm,
+                  setOpenAlert,
+                  setAlertMessage,
+                  setAlertType
+                );
+                setEditAttempt(false);
+              }
             }}
             variant="contained"
             style={{ marginTop: "10px", backgroundColor: "#138DD0" }}
