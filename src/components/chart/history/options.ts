@@ -23,7 +23,6 @@ export const computeOptions = (
     yAxis: {
       type: "value",
       boundaryGap: [0, 0.05],
-      max: 500,
     },
     dataZoom: [
       {
