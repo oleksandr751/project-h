@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { countries } from "../data/countries";
 import { IContentData, IGreatPeople } from "../interfaces";
 
 interface IMainContext {
@@ -19,7 +18,7 @@ interface IMainContext {
 
 export const MainContext = createContext<IMainContext>({
   countriesData: [],
-  selectedItem: countries[0],
+  selectedItem: { data: [] },
   isAuthenticated: false,
   greatPeople: [],
   greatPerson: {},
