@@ -22,7 +22,6 @@ export const useGreatPeopleData = () => {
         )
       );
       setLoading(false);
-      console.log(response);
     } catch (error) {}
   };
   const updateGreatPerson = async (
@@ -80,7 +79,6 @@ export const useGreatPeopleData = () => {
       setTimeout(() => {
         setOpenAlert(false);
       }, 5000);
-      console.log(response);
     } catch (error: any) {
       setAlertType("error");
       setAlertMessage(error.message);

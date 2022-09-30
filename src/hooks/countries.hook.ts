@@ -17,14 +17,12 @@ export const useCountriesData = () => {
         )
       );
       setLoading(false);
-      console.log(response);
     } catch (error) {}
   };
   const getCountry = async (id: string | any) => {
     try {
       const response = await request(`${API_URL}/api/countries/${id}`);
       setSelectedItem(response);
-      console.log(response);
     } catch (error) {}
   };
   return { getCountries, getCountry };
