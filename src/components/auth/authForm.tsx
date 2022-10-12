@@ -5,7 +5,7 @@ import {
   InputAdornment,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { AccountCircle } from "@mui/icons-material";
 import KeyIcon from "@mui/icons-material/Key";
 import LoginIcon from "@mui/icons-material/Login";
@@ -30,7 +30,7 @@ const AuthForm: React.FC<IAuthForm> = ({ setLoginAttempt }) => {
     isLogin: true,
     isPassword: true,
   };
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLoginForm({ ...loginForm, [e.target.name]: e.target.value });
   };
   const [loginForm, setLoginForm] = useState<ILoginForm>(initialState);
@@ -73,7 +73,6 @@ const AuthForm: React.FC<IAuthForm> = ({ setLoginAttempt }) => {
         value={loginForm.password}
         autoComplete="current-password"
       />
-      {/* {error && <Alert severity="error">Wrong log in data!</Alert>} */}
       <Button
         onClick={() =>
           handleLogin(loginForm.login, loginForm.password, setLoginAttempt)
