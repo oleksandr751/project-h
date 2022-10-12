@@ -5,12 +5,13 @@ import { IContentData } from "../../../../interfaces/";
 import { useState, useEffect } from "react";
 import { useChartValues } from "../../../../hooks/chartValues.hook";
 import SelectComponent from "../../../../components/select/index";
+import { IChartValues } from "../../../../interfaces/index";
 interface IGeneralInfoProps {
   contentType: string;
   data: IContentData;
 }
 const GeneralInfo: React.FC<IGeneralInfoProps> = ({ data, contentType }) => {
-  const [newChartValues, setNewChartValues] = useState({ data: [] });
+  const [newChartValues, setNewChartValues] = useState<IChartValues[]>([]);
   const options = ["Army size by number of troops", "Population"];
   const [defaultChartDataName, setDefaultChartDataName] =
     useState("Population");
@@ -62,7 +63,7 @@ const GeneralInfo: React.FC<IGeneralInfoProps> = ({ data, contentType }) => {
           selectedValue={defaultChartDataName}
           setSelectedValue={setDefaultChartDataName}
         />
-        <DataChart data={newChartValues?.data} type="line"></DataChart>
+        <DataChart data={newChartValues} type="line"></DataChart>
       </Box>
     </Box>
   );

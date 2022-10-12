@@ -7,11 +7,12 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import { TPositionType } from "../../types";
 import { ITimelineData } from "../../interfaces";
+import { ReactNode } from "react";
 
 interface ITimelineProps {
   data: ITimelineData[];
   position?: TPositionType;
-  icon: any;
+  icon: ReactNode;
 }
 const TimelineComponent: React.FC<ITimelineProps> = ({
   data,

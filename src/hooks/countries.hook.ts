@@ -19,7 +19,7 @@ export const useCountriesData = () => {
       setLoading(false);
     } catch (error) {}
   };
-  const getCountry = async (id: string | any) => {
+  const getCountry = async (id: string | null) => {
     try {
       const response = await request(`${API_URL}/api/countries/${id}`);
       setSelectedItem(response);
