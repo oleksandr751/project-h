@@ -4,11 +4,22 @@ import Stack from "@mui/material/Stack";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import ScienceIcon from "@mui/icons-material/Science";
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
-import PublicIcon from "@mui/icons-material/Public";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
+import { EIconName } from "../../enum";
+
+const ICON_VARIANT: Record<EIconName, JSX.Element> = {
+  [EIconName.Composer]: <MusicNoteIcon style={{ color: "white" }} />,
+  [EIconName.Music]: <MusicNoteIcon style={{ color: "white" }} />,
+  [EIconName.Military]: <MilitaryTechIcon style={{ color: "white" }} />,
+  [EIconName.Physics]: <ScienceIcon style={{ color: "white" }} />,
+  [EIconName.Poet]: <HistoryEduIcon style={{ color: "white" }} />,
+  [EIconName.Politics]: <MusicNoteIcon style={{ color: "white" }} />,
+  [EIconName.Writer]: <HistoryEduIcon style={{ color: "white" }} />,
+  [EIconName.Science]: <ScienceIcon style={{ color: "white" }} />,
+};
 
 interface ITagComponent {
-  tagName: string;
+  tagName: EIconName;
 }
 
 const TagComponent: React.FC<ITagComponent> = ({ tagName }) => {
@@ -16,21 +27,7 @@ const TagComponent: React.FC<ITagComponent> = ({ tagName }) => {
     <Stack direction="row" spacing={1}>
       <Chip
         sx={{ backgroundColor: "#138DD0", color: "white" }}
-        icon={
-          tagName === "Music" || tagName === "Composer" ? (
-            <MusicNoteIcon style={{ color: "white" }} />
-          ) : tagName === "Science" || tagName === "Physics" ? (
-            <ScienceIcon style={{ color: "white" }} />
-          ) : tagName === "Writer" || tagName === "Poet" ? (
-            <HistoryEduIcon style={{ color: "white" }} />
-          ) : tagName === "Politics" ? (
-            <PublicIcon style={{ color: "white" }} />
-          ) : tagName === "Military" ? (
-            <MilitaryTechIcon style={{ color: "white" }} />
-          ) : (
-            <PublicIcon style={{ color: "white" }} />
-          )
-        }
+        icon={ICON_VARIANT[tagName]}
         label={tagName}
         size="small"
       />

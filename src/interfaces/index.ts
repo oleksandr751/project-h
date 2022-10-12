@@ -1,3 +1,5 @@
+import { EIconName } from "../enum";
+
 export interface IContentData {
   id: string;
   name: string;
@@ -28,5 +30,16 @@ export interface IGreatPeople {
   imageSrc: string;
   name: string;
   occupation: string;
-  tags: string[];
+  tags: EIconName[];
+}
+export interface IChartValues {
+  value: number;
+  timestamp: string;
+}
+export interface IUseChartValues {
+  _id: string;
+  countryID: string;
+  countryName: string;
+  dataName: string;
+  data: IChartValues[];
 }
