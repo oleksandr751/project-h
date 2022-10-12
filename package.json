@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.98",
     "@mui/material": "^5.10.0",
+    "@types/echarts": "^4.9.16",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.17",
