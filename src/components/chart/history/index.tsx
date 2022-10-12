@@ -15,6 +15,8 @@ import { BarChart } from "echarts/charts";
 import { LineChart } from "echarts/charts";
 import { CanvasRenderer } from "echarts/renderers";
 import { computeOptions } from "./options";
+import { EChartsOption } from "echarts";
+import { IChartValues } from "../../../interfaces/index";
 
 echarts.use([
   TitleComponent,
@@ -33,7 +35,7 @@ echarts.use([
 interface DataChartTypes {
   chartName?: string;
   type: string;
-  data: { value: number; timestamp: string }[];
+  data: IChartValues[];
 }
 const mystyle = {
   height: "100%",
@@ -58,11 +60,11 @@ const DataChart: React.FC<DataChartTypes> = ({ chartName, type, data }) => {
   );
   const handleResize = () => {
     if (myChart) myChart.dispose();
-    myChart = echarts.init(comp.current);
-    myChart.setOption(
+    myChart = echarts.init(comp?.current);
+    myChart?.setOption(
       computeOptions(dateList, valueList, type, chartName ?? "")
     );
-    myChart.on("click", (params: any) => {
+    myChart?.on("click", (params: EChartsOption) => {
       console.log(params);
     });
   };
@@ -79,7 +81,7 @@ const DataChart: React.FC<DataChartTypes> = ({ chartName, type, data }) => {
     myChart.setOption(
       computeOptions(dateList, valueList, type, chartName ?? "")
     );
-    myChart.on("click", (params: any) => {
+    myChart.on("click", (params: EChartsOption) => {
       console.log(params);
     });
     return () => {};
