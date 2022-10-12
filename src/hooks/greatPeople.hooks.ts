@@ -38,24 +38,24 @@ export const useGreatPeopleData = () => {
           data: greatPeople,
         }
       );
-      setGreatPeople(
-        response.data.sort((a: IGreatPeople, b: IGreatPeople) =>
-          a.name < b.name ? -1 : 1
-        )
+      applyChanges(
+        setOpenAlert,
+        setAlertMessage,
+        setAlertType,
+        response.message,
+        5000,
+        "success",
+        response.data
       );
-      setAlertMessage(response.message);
-      setAlertType("success");
-      setOpenAlert(true);
-      setTimeout(() => {
-        setOpenAlert(false);
-      }, 5000);
     } catch (error: any) {
-      setAlertType("error");
-      setAlertMessage(error.message);
-      setOpenAlert(true);
-      setTimeout(() => {
-        setOpenAlert(false);
-      }, 5000);
+      applyChanges(
+        setOpenAlert,
+        setAlertMessage,
+        setAlertType,
+        error.message,
+        5000,
+        "error"
+      );
     }
   };
   const addGreatPeople = async (
@@ -68,24 +68,54 @@ export const useGreatPeopleData = () => {
       const response = await request(`${API_URL}/api/greatPeople/add`, "POST", {
         data: greatPeople,
       });
+      applyChanges(
+        setOpenAlert,
+        setAlertMessage,
+        setAlertType,
+        response.message,
+        5000,
+        "success",
+        response.data
+      );
+    } catch (error: any) {
+      applyChanges(
+        setOpenAlert,
+        setAlertMessage,
+        setAlertType,
+        error.message,
+        5000,
+        "error"
+      );
+    }
+  };
+  const applyChanges = (
+    setOpenAlert: (par: boolean) => void,
+    setAlertMessage: (par: string) => void,
+    setAlertType: (par: string) => void,
+    message: string,
+    timeout: number,
+    type: string,
+    data?: IGreatPeople[]
+  ) => {
+    if (type === "success") {
       setGreatPeople(
-        response.data.sort((a: IGreatPeople, b: IGreatPeople) =>
+        data?.sort((a: IGreatPeople, b: IGreatPeople) =>
           a.name < b.name ? -1 : 1
         )
       );
-      setAlertMessage(response.message);
+      setAlertMessage(message);
       setAlertType("success");
       setOpenAlert(true);
       setTimeout(() => {
         setOpenAlert(false);
-      }, 5000);
-    } catch (error: any) {
+      }, timeout);
+    } else {
+      setAlertMessage(message);
       setAlertType("error");
-      setAlertMessage(error.message);
       setOpenAlert(true);
       setTimeout(() => {
         setOpenAlert(false);
-      }, 5000);
+      }, timeout);
     }
   };
   return { getGreatPeople, addGreatPeople, updateGreatPerson };
