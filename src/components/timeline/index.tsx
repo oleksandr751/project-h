@@ -20,7 +20,12 @@ const TimelineComponent: React.FC<ITimelineProps> = ({
   icon,
 }) => {
   return (
-    <Timeline position={position} sx={{ width: "100%", padding: 0 }}>
+    <Timeline
+      position={position}
+      sx={{
+        padding: 0,
+      }}
+    >
       {data.map((timelineItem, idx) => (
         <TimelineItem key={idx}>
           <TimelineSeparator>
