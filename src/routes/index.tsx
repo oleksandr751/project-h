@@ -7,7 +7,7 @@ const MainRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CountriesListPage />}></Route>
-        <Route path="/timeline" element={<ContentPage />} />
+        <Route path="/country" element={<ContentPage />} />
       </Routes>
     </BrowserRouter>
   );

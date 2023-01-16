@@ -90,7 +90,7 @@ const CountriesListPage = () => {
                       .map((country) => (
                         <Link
                           key={country.id}
-                          to={"/timeline"}
+                          to={"/country"}
                           style={countriesListStyle.link as React.CSSProperties}
                           onClick={() => {
                             handleClick(country);
