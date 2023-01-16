@@ -1,3 +1,4 @@
+import background from "../../../images/background_1.jpg";
 export const countriesListStyle = {
   mainDiv: {
     height: "100vh",
@@ -5,7 +6,7 @@ export const countriesListStyle = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    background: `url("https://live.staticflickr.com/65535/52391328447_602f0c7651_h.jpg") no-repeat`,
+    background: `url(${background}) no-repeat`,
     backgroundSize: "100%",
     backgroundColor: "black",
   },
