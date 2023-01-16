@@ -25,11 +25,6 @@ const ContentPage = () => {
     setValue(newValue);
   };
   useEffect(() => {
-    getCountry(localStorage.getItem("id"));
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  useEffect(() => {
     getGreatPeople(setLoading, selectedItem?.name);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedItem]);

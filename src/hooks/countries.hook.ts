@@ -7,16 +7,14 @@ import { IContentData } from "../interfaces/index";
 export const useCountriesData = () => {
   const { request } = useHttp();
   const { setCountriesData, setSelectedItem } = useContext(MainContext);
-  const getCountries = async (setLoading: (par: boolean) => void) => {
+  const getCountries = async () => {
     try {
-      setLoading(true);
       const response = await request(`${API_URL}/api/countries`);
       setCountriesData(
         response.sort((a: IContentData, b: IContentData) =>
           a.name < b.name ? -1 : 1
         )
       );
-      setLoading(false);
     } catch (error) {}
   };
   const getCountry = async (id: string | null) => {

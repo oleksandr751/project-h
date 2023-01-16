@@ -15,18 +15,13 @@ import Loading from "../../components/loading";
 
 const CountriesListPage = () => {
   const { setSelectedItem, countriesData } = useContext(MainContext);
-  const { getCountries } = useCountriesData();
   const [loginAttempt, setLoginAttempt] = useState(false);
   const [searchBarText, setSearchBarText] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const handleClick = (country: IContentData) => {
     setSelectedItem(country);
     localStorage.setItem("id", country.id);
   };
-  useEffect(() => {
-    getCountries(setLoading);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <Box sx={countriesListStyle.mainDiv as React.CSSProperties}>

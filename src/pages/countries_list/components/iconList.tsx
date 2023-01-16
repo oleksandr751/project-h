@@ -16,7 +16,6 @@ const IconList: React.FC<IIconList> = ({ loginAttempt, setLoginAttempt }) => {
   const { isAuthenticated } = useContext(MainContext);
   const { handleLogout } = useAuth();
   const handleClick = () => {
-    console.log("1");
     setLoginAttempt(true);
   };
   return (
