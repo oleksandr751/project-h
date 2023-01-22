@@ -3,10 +3,12 @@ import CountriesListPage from "../pages/countries_list";
 import ContentPage from "../pages/content";
 import ArticleCreation from "../pages/article/create";
 import { useCountriesData } from "../hooks/countries.hook";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { MainContext } from "../context/index";
 
 const MainRoutes = () => {
   const { getCountries, getCountry } = useCountriesData();
+  const { isAuthenticated } = useContext(MainContext);
 
   useEffect(() => {
     getCountries();
@@ -18,7 +20,9 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<CountriesListPage />}></Route>
         <Route path="/country" element={<ContentPage />} />
-        <Route path="/article/create" element={<ArticleCreation />} />
+        {isAuthenticated && (
+          <Route path="/article/create" element={<ArticleCreation />} />
+        )}
       </Routes>
     </BrowserRouter>
   );
