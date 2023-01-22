@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { useState } from "react";
-import { TextField, Box } from "@mui/material";
+import { TextField, Box, IconButton } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 const ArticleSections = () => {
   const [articleSections, setArticleSections] = useState([
@@ -9,6 +10,16 @@ const ArticleSections = () => {
     { sectionHeader: "Conclusion", sectionText: "", sectionID: "3" },
   ]);
   const [headline, setHeadline] = useState("Headline");
+  const handleClick = () => {
+    setArticleSections([
+      ...articleSections,
+      {
+        sectionHeader: "Section Header",
+        sectionID: `${Math.floor(Math.random() * 100000)}`,
+        sectionText: "",
+      },
+    ]);
+  };
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     id: any
@@ -63,6 +74,9 @@ const ArticleSections = () => {
           ></TextField>
         </>
       ))}
+      <IconButton sx={{ marginLeft: "15px" }} onClick={handleClick}>
+        <AddIcon />
+      </IconButton>
     </Box>
   );
 };
