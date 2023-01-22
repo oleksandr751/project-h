@@ -60,6 +60,7 @@ const ContentPage = () => {
                 <Tab label="Great People" value="3" sx={{ width: "300px" }} />
               </TabList>
             </Box>
+            <h1>Git</h1>
             <TabPanel value="1" sx={myStyle.tabStyle}>
               <GeneralInfo data={selectedItem} contentType={"country"} />
             </TabPanel>
