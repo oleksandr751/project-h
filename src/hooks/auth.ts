@@ -10,25 +10,28 @@ export const useAuth = () => {
     window.sessionStorage.removeItem(SESSION_KEY);
     window.location.reload();
   };
-  const handleLogin = (
+  const handleLogin = async (
     login: string,
     pass: string,
     setLoginAttempt: (par: boolean) => void
   ) => {
-    if (login === USERNAME && pass === PASS) {
-      window.sessionStorage.setItem(SESSION_KEY, PASS);
-      setIsAuthenticated(true);
-      setLoginAttempt(false);
-    }
+    try {
+      const response = await request(`${API_URL}/api/auth/login`, "POST", {
+        email: login,
+        password: pass,
+      });
+      if (response.status === "success") {
+        window.sessionStorage.setItem(SESSION_KEY, PASS);
+        setIsAuthenticated(true);
+        setLoginAttempt(false);
+      }
+    } catch (error) {}
   };
   const handleSignUp = async (signUpData: any) => {
-    const response = await request(
-      `${API_URL}/api/auth/register`,
-      "POST",
-      signUpData
-    );
-
-    console.log(response);
+    console.log(signUpData);
+    try {
+      await request(`${API_URL}/api/auth/register`, "POST", signUpData);
+    } catch (error) {}
   };
   return { handleLogout, handleLogin, handleSignUp };
 };
