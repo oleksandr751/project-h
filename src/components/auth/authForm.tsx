@@ -1,6 +1,6 @@
 import {
+  Box,
   Button,
-  Card,
   CardHeader,
   InputAdornment,
   TextField,
@@ -35,7 +35,7 @@ const AuthForm: React.FC<IAuthForm> = ({ setLoginAttempt }) => {
   };
   const [loginForm, setLoginForm] = useState<ILoginForm>(initialState);
   return (
-    <Card sx={authFormStyles.mainCard}>
+    <Box sx={authFormStyles.mainCard}>
       <CardHeader title="Sign in"></CardHeader>
       <TextField
         sx={{ margin: "10px" }}
@@ -83,7 +83,7 @@ const AuthForm: React.FC<IAuthForm> = ({ setLoginAttempt }) => {
       >
         Log In
       </Button>
-    </Card>
+    </Box>
   );
 };
 
