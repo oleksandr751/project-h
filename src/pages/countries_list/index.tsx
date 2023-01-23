@@ -7,11 +7,10 @@ import { countriesListStyle } from "./styles";
 import ContentCard from "../../components/contentCard/contentCard";
 import { IContentData } from "../../interfaces/index";
 import IconList from "./components/iconList";
-import AuthForm from "../../components/auth/authForm";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SearchBar from "../../components/searchBar";
-import { useCountriesData } from "../../hooks/countries.hook";
 import Loading from "../../components/loading";
+import AuthComponent from "../../components/auth";
 
 const CountriesListPage = () => {
   const { setSelectedItem, countriesData } = useContext(MainContext);
@@ -64,7 +63,7 @@ const CountriesListPage = () => {
         </Box>
         <Box sx={countriesListStyle.rightChildDiv as React.CSSProperties}>
           {loginAttempt ? (
-            <AuthForm setLoginAttempt={setLoginAttempt} />
+            <AuthComponent setLoginAttempt={setLoginAttempt}></AuthComponent>
           ) : (
             <>
               <SearchBar
