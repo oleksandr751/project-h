@@ -5,7 +5,7 @@ export const myStyle = {
     display: "flex",
     // flexDirection: "row",
     justifyContent: "space-between",
-    width: "1800px",
+    width: "90vw",
     margin: "auto",
   },
   leftChildDiv: {
@@ -81,5 +81,11 @@ export const myStyle = {
     paddingTop: "20px",
     justifyContent: "flex-start",
     alignItems: "start",
+  },
+  contentDiv: {
+    display: "flex",
+    justifyContent: "space-around",
+    alightItems: "flex-start",
+    flexDirection: "column",
   },
 };
