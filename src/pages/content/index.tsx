@@ -16,6 +16,8 @@ import { useGreatPeopleData } from "../../hooks/greatPeople.hooks";
 import Loading from "../../components/loading/index";
 import { MainContext } from "../../context/index";
 import { useCountriesData } from "../../hooks/countries.hook";
+import { TogglableClosed } from "./components/togglable_slider/togglableClosed";
+import TogglableOpen from "./components/togglable_slider/togglableOpen";
 
 const ContentPage = () => {
   const [value, setValue] = useState("1");
@@ -39,67 +41,10 @@ const ContentPage = () => {
       </Link>
       <Box sx={myStyle.mainDiv}>
         {check ? (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-around",
-              alightItems: "flex-start",
-              flexDirection: "column",
-            }}
-          >
-            <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
-              <img
-                src={selectedItem?.imageSrc}
-                alt={selectedItem?.name}
-                width="300px"
-                height="200px"
-              ></img>
-              <Box sx={myStyle.contentInfo}>
-                <Typography variant="h6">{selectedItem?.name}</Typography>
-                <Typography>{selectedItem?.description}</Typography>
-              </Box>
-            </Box>
-            <Box sx={myStyle.toggleIcon}>
-              <IconButton sx={{ height: "60px", width: "60px" }}>
-                <ChevronLeftIcon
-                  sx={myStyle.toggleIcon}
-                  onClick={() => {
-                    setCheck((prevCheck) => !prevCheck);
-                  }}
-                />
-              </IconButton>
-            </Box>
-          </Box>
+          <TogglableOpen setCheck={setCheck} />
         ) : (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-around",
-              alightItems: "flex-start",
-              flexDirection: "column",
-            }}
-          >
-            <Box sx={myStyle.leftChildDivToggle as React.CSSProperties}>
-              <img
-                src={selectedItem?.imageSrc}
-                alt={selectedItem?.name}
-                width="88px"
-                height="55px"
-              ></img>
-            </Box>
-            <Box sx={myStyle.toggleIcon}>
-              <IconButton>
-                <ChevronRightIcon
-                  sx={myStyle.toggleIcon}
-                  onClick={() => {
-                    setCheck((prevCheck) => !prevCheck);
-                  }}
-                />
-              </IconButton>
-            </Box>
-          </Box>
+          <TogglableClosed setCheck={setCheck} />
         )}
-
         <Box
           sx={
             check
