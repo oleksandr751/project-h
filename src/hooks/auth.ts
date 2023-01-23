@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import { USERNAME, PASS, SESSION_KEY } from "../config";
+import { USERNAME, PASS, SESSION_KEY, API_URL } from "../config";
 import { MainContext } from "../context";
+import { useHttp } from "./http.hook";
 
 export const useAuth = () => {
   const { setIsAuthenticated } = useContext(MainContext);
+  const { request } = useHttp();
   const handleLogout = () => {
     window.sessionStorage.removeItem(SESSION_KEY);
     window.location.reload();
@@ -19,5 +21,14 @@ export const useAuth = () => {
       setLoginAttempt(false);
     }
   };
-  return { handleLogout, handleLogin };
+  const handleSignUp = async (signUpData: any) => {
+    const response = await request(
+      `${API_URL}/api/auth/register`,
+      "POST",
+      signUpData
+    );
+
+    console.log(response);
+  };
+  return { handleLogout, handleLogin, handleSignUp };
 };
