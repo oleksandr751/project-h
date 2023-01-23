@@ -1,14 +1,18 @@
+import { autocompleteClasses } from "@mui/material";
+
 export const myStyle = {
   mainDiv: {
     display: "flex",
     // flexDirection: "row",
     justifyContent: "space-between",
+    width: "90vw",
+    margin: "auto",
   },
   leftChildDiv: {
     position: "sticky",
     top: 0,
-    width: "30%",
-    height: "400px",
+    width: "100%",
+    minHeight: "30%",
     display: "flex",
     // flexDirection: "row",
     marginTop: "10px",
@@ -49,5 +53,39 @@ export const myStyle = {
       "&::WebkitBoxShadow": "inset 0 0 6px rgba(0,0,0,.3)",
       backgroundColor: "#138DD0",
     },
+  },
+  toggleIcon: {
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
+    minHeight: "50%",
+    fontSize: "50px",
+  },
+  rightChildDivToggle: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    paddingTop: "100px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  leftChildDivToggle: {
+    position: "sticky",
+    top: 0,
+    width: "100%",
+    minHeight: "30%",
+    display: "flex",
+    // flexDirection: "row",
+    marginTop: "10px",
+    paddingTop: "20px",
+    justifyContent: "flex-start",
+    alignItems: "start",
+  },
+  contentDiv: {
+    display: "flex",
+    justifyContent: "space-around",
+    alightItems: "flex-start",
+    flexDirection: "column",
   },
 };

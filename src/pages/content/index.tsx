@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Box, Button, Tab, Typography } from "@mui/material";
+import { Box, Button, IconButton, Tab, Typography } from "@mui/material";
 import TimelineComponent from "../../components/timeline";
 import { myStyle } from "./styles";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import GeneralInfo from "./components/general_info";
 import { Link } from "react-router-dom";
 import PublicIcon from "@mui/icons-material/Public";
@@ -14,10 +16,13 @@ import { useGreatPeopleData } from "../../hooks/greatPeople.hooks";
 import Loading from "../../components/loading/index";
 import { MainContext } from "../../context/index";
 import { useCountriesData } from "../../hooks/countries.hook";
+import { TogglableClosed } from "./components/togglable_slider/togglableClosed";
+import TogglableOpen from "./components/togglable_slider/togglableOpen";
 
 const ContentPage = () => {
   const [value, setValue] = useState("1");
   const [loading, setLoading] = useState(false);
+  const [check, setCheck] = useState(true);
   const { greatPeople, selectedItem } = useContext(MainContext);
   const { getGreatPeople } = useGreatPeopleData();
   const { getCountry } = useCountriesData();
@@ -35,19 +40,18 @@ const ContentPage = () => {
         <Button>Go back</Button>
       </Link>
       <Box sx={myStyle.mainDiv}>
-        <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
-          <img
-            src={selectedItem?.imageSrc}
-            alt={selectedItem?.name}
-            width="300px"
-            height="200px"
-          ></img>
-          <Box sx={myStyle.contentInfo}>
-            <Typography variant="h6">{selectedItem?.name}</Typography>
-            <Typography>{selectedItem?.description}</Typography>
-          </Box>
-        </Box>
-        <Box sx={myStyle.rightChildDiv as React.CSSProperties}>
+        {check ? (
+          <TogglableOpen setCheck={setCheck} />
+        ) : (
+          <TogglableClosed setCheck={setCheck} />
+        )}
+        <Box
+          sx={
+            check
+              ? (myStyle.rightChildDiv as React.CSSProperties)
+              : (myStyle.rightChildDivToggle as React.CSSProperties)
+          }
+        >
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <TabList onChange={handleChange}>
