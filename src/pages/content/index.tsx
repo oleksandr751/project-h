@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Box, Button, Tab, Typography } from "@mui/material";
+import { Box, Button, IconButton, Tab, Typography } from "@mui/material";
 import TimelineComponent from "../../components/timeline";
 import { myStyle } from "./styles";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import GeneralInfo from "./components/general_info";
 import { Link } from "react-router-dom";
 import PublicIcon from "@mui/icons-material/Public";
@@ -37,25 +39,74 @@ const ContentPage = () => {
       </Link>
       <Box sx={myStyle.mainDiv}>
         {check ? (
-          <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
-            <img
-              src={selectedItem?.imageSrc}
-              alt={selectedItem?.name}
-              width="300px"
-              height="200px"
-            ></img>
-            <Box sx={myStyle.contentInfo}>
-              <Typography variant="h6">{selectedItem?.name}</Typography>
-              <Typography>{selectedItem?.description}</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              alightItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
+              <img
+                src={selectedItem?.imageSrc}
+                alt={selectedItem?.name}
+                width="300px"
+                height="200px"
+              ></img>
+              <Box sx={myStyle.contentInfo}>
+                <Typography variant="h6">{selectedItem?.name}</Typography>
+                <Typography>{selectedItem?.description}</Typography>
+              </Box>
+            </Box>
+            <Box sx={myStyle.toggleIcon}>
+              <IconButton sx={{ height: "60px", width: "60px" }}>
+                <ChevronLeftIcon
+                  sx={myStyle.toggleIcon}
+                  onClick={() => {
+                    setCheck((prevCheck) => !prevCheck);
+                  }}
+                />
+              </IconButton>
             </Box>
           </Box>
         ) : (
-          <Box>
-            <Typography>Hi</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              alightItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <Box sx={myStyle.leftChildDivToggle as React.CSSProperties}>
+              <img
+                src={selectedItem?.imageSrc}
+                alt={selectedItem?.name}
+                width="88px"
+                height="55px"
+              ></img>
+            </Box>
+            <Box sx={myStyle.toggleIcon}>
+              <IconButton>
+                <ChevronRightIcon
+                  sx={myStyle.toggleIcon}
+                  onClick={() => {
+                    setCheck((prevCheck) => !prevCheck);
+                  }}
+                />
+              </IconButton>
+            </Box>
           </Box>
         )}
 
-        <Box sx={myStyle.rightChildDiv as React.CSSProperties}>
+        <Box
+          sx={
+            check
+              ? (myStyle.rightChildDiv as React.CSSProperties)
+              : (myStyle.rightChildDivToggle as React.CSSProperties)
+          }
+        >
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <TabList onChange={handleChange}>
@@ -68,7 +119,6 @@ const ContentPage = () => {
                 <Tab label="Great People" value="3" sx={{ width: "300px" }} />
               </TabList>
             </Box>
-            <h1>Git</h1>
             <TabPanel value="1" sx={myStyle.tabStyle}>
               <GeneralInfo data={selectedItem} contentType={"country"} />
             </TabPanel>
