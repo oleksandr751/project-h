@@ -18,6 +18,7 @@ import { useCountriesData } from "../../hooks/countries.hook";
 const ContentPage = () => {
   const [value, setValue] = useState("1");
   const [loading, setLoading] = useState(false);
+  const [check, setCheck] = useState(true);
   const { greatPeople, selectedItem } = useContext(MainContext);
   const { getGreatPeople } = useGreatPeopleData();
   const { getCountry } = useCountriesData();
@@ -35,18 +36,25 @@ const ContentPage = () => {
         <Button>Go back</Button>
       </Link>
       <Box sx={myStyle.mainDiv}>
-        <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
-          <img
-            src={selectedItem?.imageSrc}
-            alt={selectedItem?.name}
-            width="300px"
-            height="200px"
-          ></img>
-          <Box sx={myStyle.contentInfo}>
-            <Typography variant="h6">{selectedItem?.name}</Typography>
-            <Typography>{selectedItem?.description}</Typography>
+        {check ? (
+          <Box sx={myStyle.leftChildDiv as React.CSSProperties}>
+            <img
+              src={selectedItem?.imageSrc}
+              alt={selectedItem?.name}
+              width="300px"
+              height="200px"
+            ></img>
+            <Box sx={myStyle.contentInfo}>
+              <Typography variant="h6">{selectedItem?.name}</Typography>
+              <Typography>{selectedItem?.description}</Typography>
+            </Box>
           </Box>
-        </Box>
+        ) : (
+          <Box>
+            <Typography>Hi</Typography>
+          </Box>
+        )}
+
         <Box sx={myStyle.rightChildDiv as React.CSSProperties}>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
