@@ -5,6 +5,7 @@ import ArticleCreation from "../pages/article/create";
 import { useCountriesData } from "../hooks/countries.hook";
 import { useEffect, useContext } from "react";
 import { MainContext } from "../context/index";
+import EmailForm from "../pages/content/emailForm";
 
 const MainRoutes = () => {
   const { getCountries, getCountry } = useCountriesData();
@@ -20,6 +21,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<CountriesListPage />}></Route>
         <Route path="/country" element={<ContentPage />} />
+        <Route path="/form" element={<EmailForm />} />
         {isAuthenticated && (
           <Route path="/article/create" element={<ArticleCreation />} />
         )}
