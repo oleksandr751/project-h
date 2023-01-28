@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { USERNAME, PASS, SESSION_KEY, API_URL } from "../config";
+import { PASS, SESSION_KEY, API_URL } from "../config";
 import { MainContext } from "../context";
 import { useHttp } from "./http.hook";
 

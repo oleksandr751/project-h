@@ -1,5 +1,3 @@
-import { autocompleteClasses } from "@mui/material";
-
 export const myStyle = {
   mainDiv: {
     display: "flex",

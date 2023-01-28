@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Box, Button, IconButton, Tab, Typography } from "@mui/material";
+import { Box, Button, Tab } from "@mui/material";
 import TimelineComponent from "../../components/timeline";
 import { myStyle } from "./styles";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import GeneralInfo from "./components/general_info";
 import { Link } from "react-router-dom";
 import PublicIcon from "@mui/icons-material/Public";
@@ -15,7 +13,6 @@ import { useEffect, useContext } from "react";
 import { useGreatPeopleData } from "../../hooks/greatPeople.hooks";
 import Loading from "../../components/loading/index";
 import { MainContext } from "../../context/index";
-import { useCountriesData } from "../../hooks/countries.hook";
 import { TogglableClosed } from "./components/togglable_slider/togglableClosed";
 import TogglableOpen from "./components/togglable_slider/togglableOpen";
 
@@ -25,7 +22,6 @@ const ContentPage = () => {
   const [check, setCheck] = useState(true);
   const { greatPeople, selectedItem } = useContext(MainContext);
   const { getGreatPeople } = useGreatPeopleData();
-  const { getCountry } = useCountriesData();
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
