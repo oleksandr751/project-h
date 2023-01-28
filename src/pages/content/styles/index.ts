@@ -86,4 +86,24 @@ export const myStyle = {
     alightItems: "flex-start",
     flexDirection: "column",
   },
+  formDiv: {
+    display: "flex",
+    justifyContent: "center",
+    alightItems: "center",
+    flexDirection: "column",
+    width: "90vw",
+    margin: "auto",
+    paddingTop: "50px",
+  },
+  formText: {
+    paddingBottom: "15px",
+  },
+  formInputs: {
+    paddingBottom: "10px",
+    width: "500px",
+  },
+  formInputsLastForm: {
+    paddingBottom: "10px",
+    width: "500px",
+  },
 };
