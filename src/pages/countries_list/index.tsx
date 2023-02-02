@@ -12,6 +12,7 @@ import SearchBar from "../../components/searchBar";
 import Loading from "../../components/loading";
 import AuthComponent from "../../components/auth";
 import Footer from "../../components/footer";
+import ArticleCard from "../content/components/articleCard";
 
 const CountriesListPage = () => {
   const { setSelectedItem, countriesData } = useContext(MainContext);
@@ -107,6 +108,7 @@ const CountriesListPage = () => {
           </Box>
         </Box>
       </Box>
+      <ArticleCard />
       <Footer />
     </Box>
   );
