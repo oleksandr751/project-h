@@ -9,18 +9,16 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import "swiper/css";
-import { Typography } from "@mui/material";
-interface ISliderSlides {
-  id: number;
-  text?: string;
-  author?: string;
-  year?: string;
-  alt?: string;
-}
+import { IArticleData } from "../../interfaces";
+import ArticleCard from "../articleCard";
+import { Box } from "@mui/material";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 interface ISliderProps {
-  slides: ISliderSlides[];
+  slidesData: IArticleData[];
 }
-const Slider: React.FC<ISliderProps> = ({ slides }) => {
+const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
   SwiperCore.use([
     Navigation,
     Pagination,
@@ -30,19 +28,25 @@ const Slider: React.FC<ISliderProps> = ({ slides }) => {
     Autoplay,
   ]);
   return (
-    <>
+    <Box sx={{ width: "60vw" }}>
       <Swiper
+        style={{ height: "600px" }}
         loop
-        allowTouchMove={false}
-        slidesPerView={1}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
-        speed={5000}
-        autoplay={{ delay: 10000, disableOnInteraction: false }}
+        spaceBetween={10}
+        slidesPerView={2}
+        pagination={{ clickable: true, el: ".swiper-pagination" }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+        speed={500}
+        // autoplay={{ delay: 10000, disableOnInteraction: false }}
       >
-        {slides.map((slide) => (
+        {slidesData.map((slide) => (
           <SwiperSlide
-            key={slide.id}
+            key={slide.articleId}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -51,30 +55,14 @@ const Slider: React.FC<ISliderProps> = ({ slides }) => {
               width: "100px",
             }}
           >
-            <Typography
-              variant="h5"
-              style={{
-                maxWidth: "350px",
-                fontFamily: "cursive",
-                marginTop: "40px",
-              }}
-            >
-              {`"${slide.text ?? slide.alt}"`}
-            </Typography>
-            <Typography
-              variant="h6"
-              style={{
-                maxWidth: "300px",
-                fontFamily: "cursive",
-                marginTop: "40px",
-              }}
-            >
-              {`${slide.author ?? slide.alt}, ${slide.year}`}
-            </Typography>
+            <ArticleCard articleData={slide}></ArticleCard>
           </SwiperSlide>
         ))}
+        <div className="swiper-button-next"></div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-pagination"></div>
       </Swiper>
-    </>
+    </Box>
   );
 };
 
