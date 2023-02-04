@@ -11,10 +11,11 @@ import SwiperCore, {
 import "swiper/css";
 import { IArticleData } from "../../interfaces";
 import ArticleCard from "../articleCard";
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 interface ISliderProps {
   slidesData: IArticleData[];
 }
@@ -58,9 +59,23 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
             <ArticleCard articleData={slide}></ArticleCard>
           </SwiperSlide>
         ))}
-        <div className="swiper-button-next"></div>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-pagination"></div>
+        <Box
+          className="swiper-button-next"
+          sx={{ "&:after": { display: "none" } }}
+        >
+          <IconButton>
+            <ChevronRight></ChevronRight>
+          </IconButton>
+        </Box>
+        <Box
+          className="swiper-button-prev"
+          sx={{ "&:after": { display: "none" } }}
+        >
+          <IconButton>
+            <ChevronLeft></ChevronLeft>
+          </IconButton>
+        </Box>
+        <Box className="swiper-pagination"></Box>
       </Swiper>
     </Box>
   );
