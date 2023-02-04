@@ -8,6 +8,16 @@ export interface IContentData {
   generalInfo: IGeneralInfo;
   timelineData: ITimelineData[];
 }
+export interface IArticleData {
+  name: string;
+  description: string;
+  articleId: number;
+  imageSrc: string;
+  tags: EIconName[];
+  upvotes: number;
+  downvotes: number;
+  author: string;
+}
 export interface ITimelineData {
   name: string;
   dateStart: string;
