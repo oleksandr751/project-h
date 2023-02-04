@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { MainContext } from "../../context/index";
 import { Box, IconButton, Typography } from "@mui/material";
 import { countriesListStyle } from "./styles";
@@ -12,7 +12,10 @@ import SearchBar from "../../components/searchBar";
 import Loading from "../../components/loading";
 import AuthComponent from "../../components/auth";
 import Footer from "../../components/footer";
-import ArticleCard from "../content/components/articleCard";
+import { articleData } from "../../data/articleCardsData";
+import ArticleCard from "../../components/articleCard";
+import { cardStyles } from "../../components/articleCard/styles";
+import Slider from "../../components/slider";
 
 const CountriesListPage = () => {
   const { setSelectedItem, countriesData } = useContext(MainContext);
@@ -108,7 +111,15 @@ const CountriesListPage = () => {
           </Box>
         </Box>
       </Box>
-      <ArticleCard />
+      <Box sx={cardStyles.mainDiv}>
+        <Box>
+          <Typography sx={{ fontSize: "48px" }}>Best rated articles</Typography>
+        </Box>
+        <Box sx={cardStyles.contentDiv}>
+          <Slider slidesData={articleData} />
+        </Box>
+      </Box>
+
       <Footer />
     </Box>
   );
