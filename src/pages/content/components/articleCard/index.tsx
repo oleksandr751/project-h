@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import { cardStyles } from "./styles";
 import { articleData } from "../../../../data/articleCardsData";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import TagComponent from "../../../../components/tag";
 
 const ArticleCard = () => {
   return (
@@ -28,7 +29,8 @@ const ArticleCard = () => {
             <Box sx={cardStyles.descriptionDiv}>{item.description}</Box>
             <Box sx={cardStyles.tagsDiv}>
               {item?.tags?.map((tags) => (
-                <Box sx={cardStyles.partTagDiv}>{tags}</Box>
+                <TagComponent tagName={tags} />
+                // <Box sx={cardStyles.partTagDiv}>{tags}</Box>
               ))}
             </Box>
             <Box sx={cardStyles.bottomCardDiv}>
