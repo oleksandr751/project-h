@@ -61,18 +61,18 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
         ))}
         <Box
           className="swiper-button-next"
-          sx={{ "&:after": { display: "none" } }}
+          sx={{ "&:after": { display: "none" }, padding: "25px" }}
         >
           <IconButton>
-            <ChevronRight></ChevronRight>
+            <ChevronRight sx={{ fontSize: "50px" }}></ChevronRight>
           </IconButton>
         </Box>
         <Box
           className="swiper-button-prev"
-          sx={{ "&:after": { display: "none" } }}
+          sx={{ "&:after": { display: "none" }, padding: "25px" }}
         >
           <IconButton>
-            <ChevronLeft></ChevronLeft>
+            <ChevronLeft sx={{ fontSize: "50px" }}></ChevronLeft>
           </IconButton>
         </Box>
         <Box className="swiper-pagination"></Box>
