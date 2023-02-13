@@ -8,3 +8,11 @@ export enum EIconName {
   Politics = "Politics",
   Military = "Military",
 }
+
+export enum EIconName2 {
+  Tanks = "tanks",
+  Aircraft = "aircraft",
+  Troops = "troops",
+  Artillery = "artillery",
+  Ships = "ships",
+}
