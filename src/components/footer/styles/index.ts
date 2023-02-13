@@ -13,7 +13,7 @@ export const FooterStyles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly",
-    width: "60vw",
+    width: "70vw",
     margin: "auto",
     minHeight: "550px",
   },

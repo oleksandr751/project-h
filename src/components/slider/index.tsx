@@ -29,21 +29,16 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
     Autoplay,
   ]);
   return (
-    <Box sx={{ width: "60vw" }}>
+    <Box sx={{ width: "85vw" }}>
       <Swiper
         style={{ height: "600px" }}
         loop
-        spaceBetween={10}
-        slidesPerView={2}
-        pagination={{ clickable: true, el: ".swiper-pagination" }}
+        slidesPerView={3}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
         speed={500}
-        // autoplay={{ delay: 10000, disableOnInteraction: false }}
       >
         {slidesData.map((slide) => (
           <SwiperSlide
@@ -53,7 +48,6 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              width: "100px",
             }}
           >
             <ArticleCard articleData={slide}></ArticleCard>

@@ -1,5 +1,5 @@
 import { Card } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { IContentData, IGreatPeople } from "../../interfaces";
 import ContentCardCountry from "./contentCardCountry";
 import ContentCardPerson from "./contentCardPerson";

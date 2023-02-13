@@ -1,4 +1,3 @@
-import background from "/images/background_1.jpg";
 export const countriesListStyle = {
   mainDiv: {
     height: "100vh",

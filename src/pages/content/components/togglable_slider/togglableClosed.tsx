@@ -9,7 +9,7 @@ interface ITogglableClosed {
   setCheck: any;
 }
 export const TogglableClosed: React.FC<ITogglableClosed> = ({ setCheck }) => {
-  const { greatPeople, selectedItem } = useContext(MainContext);
+  const { selectedItem } = useContext(MainContext);
   return (
     <Box sx={myStyle.contentDiv}>
       <Box sx={myStyle.leftChildDivToggle as React.CSSProperties}>
