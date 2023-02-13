@@ -13,7 +13,6 @@ export const cardStyles = {
   },
   descriptionDiv: {
     textAlign: "center",
-    fontFamily: "Sanchez",
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: "17px",
@@ -30,7 +29,6 @@ export const cardStyles = {
     borderRadius: "2%",
   },
   nameDiv: {
-    fontFamily: "Sanchez",
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: "38px",
@@ -53,11 +51,7 @@ export const cardStyles = {
   },
   upvotesDiv: {},
   authorDiv: {
-    fontFamily: "Sanchez",
     fontStyle: "italic",
-    fontWeight: "400",
-    fontSize: "25px",
-    lineHeight: "18px",
   },
   bottomCardDiv: {
     display: "flex",

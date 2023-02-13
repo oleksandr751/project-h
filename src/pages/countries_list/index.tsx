@@ -13,7 +13,6 @@ import Loading from "../../components/loading";
 import AuthComponent from "../../components/auth";
 import Footer from "../../components/footer";
 import { articleData } from "../../data/articleCardsData";
-import ArticleCard from "../../components/articleCard";
 import { cardStyles } from "../../components/articleCard/styles";
 import Slider from "../../components/slider";
 

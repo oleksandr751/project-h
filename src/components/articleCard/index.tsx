@@ -3,6 +3,7 @@ import { cardStyles } from "./styles";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { IArticleData } from "../../interfaces";
 import TagComponent from "../tag";
+import { Typography } from "@mui/material";
 interface IArticleCard {
   articleData: IArticleData;
 }
@@ -20,12 +21,13 @@ const ArticleCard: React.FC<IArticleCard> = ({ articleData }) => {
           }}
         />
       </Box>
-      <Box sx={cardStyles.nameDiv}>{articleData.name}</Box>
-      <Box sx={cardStyles.descriptionDiv}>{articleData.description}</Box>
+      <Typography sx={cardStyles.nameDiv}>{articleData.name}</Typography>
+      <Typography sx={cardStyles.descriptionDiv}>
+        {articleData.description}
+      </Typography>
       <Box sx={cardStyles.tagsDiv}>
         {articleData?.tags?.map((tag) => (
           <TagComponent tagName={tag} />
-          // <Box sx={cardStyles.partTagDiv}>{tags}</Box>
         ))}
       </Box>
       <Box sx={cardStyles.bottomCardDiv}>
@@ -33,23 +35,27 @@ const ArticleCard: React.FC<IArticleCard> = ({ articleData }) => {
           <ArrowUpwardIcon
             sx={{
               color: "green",
-              fontSize: "50px",
+              fontSize: "30px",
               position: "relative",
               top: "18px",
             }}
           />
-          <Box
+          <Typography
             sx={{
               position: "relative ",
-              left: "30px",
-              bottom: "45px",
+              left: "20px",
+              bottom: "28px",
+              fontSize: "14px",
               color: "green",
             }}
           >
             {articleData.upvotes}
-          </Box>
+          </Typography>
         </Box>
-        <Box sx={cardStyles.authorDiv}>{articleData.author}</Box>
+        <Typography
+          sx={cardStyles.authorDiv}
+          variant="subtitle1"
+        >{`by ${articleData.author}`}</Typography>
       </Box>
     </Box>
   );

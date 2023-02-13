@@ -3,7 +3,6 @@ export const FooterStyles = {
     display: "flex",
     background: "#2C3056",
     color: "white",
-    fontFamily: "Sanchez",
     fontStyle: "normal",
     fontWeight: 400,
     fontSize: "20px",

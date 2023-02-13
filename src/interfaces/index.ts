@@ -53,3 +53,18 @@ export interface IUseChartValues {
   dataName: string;
   data: IChartValues[];
 }
+export interface IRatioBarData {
+  id: number;
+  colors: IColors;
+  values: IValues;
+  type: TIconType;
+}
+export interface IValues {
+  a: number;
+  b: number;
+}
+export interface IColors {
+  colorA: string;
+  colorB: string;
+}
+export type TIconType = "aircraft" | "artillery" | "ships" | "tanks" | "troops";
