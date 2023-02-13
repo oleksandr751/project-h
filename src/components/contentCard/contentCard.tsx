@@ -1,5 +1,5 @@
 import { Card } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { IContentData, IGreatPeople } from "../../interfaces";
 import ContentCardCountry from "./contentCardCountry";
 import ContentCardPerson from "./contentCardPerson";
@@ -21,6 +21,7 @@ const ContentCard: React.FC<IContentCard> = ({
               width: "300px",
               height: "110px",
               marginTop: "20px",
+              boxShadow: "10px 5px 5px #FA496E",
             }
           : { width: "380px", height: "170px", marginTop: "20px" }
       }

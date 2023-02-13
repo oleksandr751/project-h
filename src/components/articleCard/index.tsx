@@ -27,7 +27,7 @@ const ArticleCard: React.FC<IArticleCard> = ({ articleData }) => {
       </Typography>
       <Box sx={cardStyles.tagsDiv}>
         {articleData?.tags?.map((tag) => (
-          <TagComponent tagName={tag} />
+          <TagComponent tagName={tag} key={tag} />
         ))}
       </Box>
       <Box sx={cardStyles.bottomCardDiv}>

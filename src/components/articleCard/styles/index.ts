@@ -4,12 +4,12 @@ export const cardStyles = {
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
+    padding: "50px",
   },
   contentDiv: {
     display: "flex",
     minWidth: "60%",
     justifyContent: "space-evenly",
-    padding: "50px",
   },
   descriptionDiv: {
     textAlign: "center",

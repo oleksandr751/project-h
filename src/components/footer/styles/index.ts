@@ -1,7 +1,8 @@
 export const FooterStyles = {
   mainDiv: {
     display: "flex",
-    background: "#2C3056",
+    backgroundImage:
+      "radial-gradient(54.35% 54.35% at 13.82% 7%, #162051 0%, #161B32 100%)",
     color: "white",
     fontStyle: "normal",
     fontWeight: 400,

@@ -40,8 +40,8 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
         speed={500}
         // autoplay={{ delay: 10000, disableOnInteraction: false }}
       >
