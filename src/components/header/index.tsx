@@ -29,27 +29,27 @@ const Header = () => {
       >
         <img src="/images/logo.png" alt="logo"></img>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          height: "100%",
-        }}
-      >
-        <Typography
+      <Box sx={{ height: "100%" }}>
+        <Box
           sx={{
-            ...headerStyles.typography,
-            borderBottom:
-              location.pathname === "/" ? "2px solid red" : "2px solid white",
+            display: "flex",
+            flexDirection: "row",
+            minHeight: "100%",
           }}
         >
-          Home
-        </Typography>
-        <Typography sx={headerStyles.typography}>Contact Us</Typography>
-        <Typography sx={headerStyles.typography}>Info</Typography>
-        <Typography sx={headerStyles.typography}>Login</Typography>
+          <Typography
+            sx={{
+              ...headerStyles.typography,
+              borderBottom:
+                location.pathname === "/" ? "3px solid red" : "2px solid white",
+            }}
+          >
+            Home
+          </Typography>
+          <Typography sx={headerStyles.typography}>Contact Us</Typography>
+          <Typography sx={headerStyles.typography}>Info</Typography>
+          <Typography sx={headerStyles.typography}>Login</Typography>
+        </Box>
       </Box>
     </Box>
   );
