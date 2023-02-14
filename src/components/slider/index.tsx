@@ -38,6 +38,7 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
+        allowTouchMove={false}
         speed={500}
       >
         {slidesData.map((slide) => (
