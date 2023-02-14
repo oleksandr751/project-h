@@ -6,6 +6,8 @@ import { useCountriesData } from "../hooks/countries.hook";
 import { useEffect, useContext } from "react";
 import { MainContext } from "../context/index";
 import EmailForm from "../pages/content/emailForm";
+import MiniDrawer from "../components/userDashBoard/DrawerTest";
+import Files from "../pages/files";
 
 const MainRoutes = () => {
   const { getCountries, getCountry } = useCountriesData();
@@ -22,6 +24,8 @@ const MainRoutes = () => {
         <Route path="/" element={<CountriesListPage />}></Route>
         <Route path="/country" element={<ContentPage />} />
         <Route path="/form" element={<EmailForm />} />
+        <Route path="/dashBoard/*" element={<MiniDrawer />} />
+        <Route path="/app/posts" element={<Files />}></Route>
         {isAuthenticated && (
           <Route path="/article/create" element={<ArticleCreation />} />
         )}
