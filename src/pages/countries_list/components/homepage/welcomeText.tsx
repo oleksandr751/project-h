@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import StartIcon from "@mui/icons-material/Start";
-import { countriesListStyle } from "../styles";
+import { countriesListStyle } from "../../styles";
 const WelcomeText = () => {
   return (
     <Box sx={{ textAlign: "start" }}>

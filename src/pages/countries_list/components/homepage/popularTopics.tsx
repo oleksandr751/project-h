@@ -1,11 +1,10 @@
 import React from "react";
-import Loading from "../../../components/loading";
-import { Typography } from "@mui/material";
-import { countriesListStyle } from "../styles";
+import { Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import ContentCard from "../../../components/contentCard/contentCard";
-import { Box } from "@mui/system";
-import { IContentData } from "../../../interfaces";
+import { IContentData } from "../../../../interfaces";
+import Loading from "../../../../components/loading";
+import ContentCard from "../../../../components/contentCard/contentCard";
+import { countriesListStyle } from "../../styles";
 interface IPopularTopics {
   loading: any;
   data: IContentData[];

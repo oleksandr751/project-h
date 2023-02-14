@@ -2,14 +2,14 @@ import React from "react";
 import { useContext, useState } from "react";
 import { Box, IconButton, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Header from "../../../components/header";
-import WelcomeText from "./welcomeText";
-import AuthComponent from "../../../components/auth";
-import PopularTopics from "./popularTopics";
-import { MainContext } from "../../../context";
-import { IContentData } from "../../../interfaces";
-import { countriesListStyle } from "../styles";
+import Header from "../../../../components/header";
+import AuthComponent from "../../../../components/auth";
+import { MainContext } from "../../../../context";
+import { IContentData } from "../../../../interfaces";
+import { countriesListStyle } from "../../styles";
 import InfoPage from "./infopage";
+import WelcomeText from "./welcomeText";
+import PopularTopics from "./popularTopics";
 
 const Homepage = () => {
   const { setSelectedItem, countriesData } = useContext(MainContext);

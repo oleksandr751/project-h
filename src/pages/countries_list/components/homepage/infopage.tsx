@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import InfoCard from "../../../components/infoCard";
+import InfoCard from "../../../../components/infoCard";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import ArticleIcon from "@mui/icons-material/Article";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
