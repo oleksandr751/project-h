@@ -5,10 +5,14 @@ export const cardStyles = {
     justifyContent: "space-around",
     alignItems: "center",
     padding: "50px",
+    width: "50%",
+    borderLeft: 5,
+    borderColor: "#FA496E ",
+    height: "500px",
   },
   contentDiv: {
     display: "flex",
-    minWidth: "60%",
+    width: "100%",
     justifyContent: "space-evenly",
   },
   descriptionDiv: {
@@ -39,7 +43,7 @@ export const cardStyles = {
   tagsDiv: {
     display: "flex",
     justifyContent: "space-around",
-    padding: "25px 0px 25px 0px",
+    padding: "25px 0px 0px 0px",
     minWidth: "55%",
   },
   partTagDiv: {

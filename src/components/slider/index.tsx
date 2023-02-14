@@ -29,11 +29,11 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
     Autoplay,
   ]);
   return (
-    <Box sx={{ width: "80vw" }}>
+    <Box sx={{ width: "100%" }}>
       <Swiper
-        style={{ height: "600px" }}
+        style={{ height: "500px" }}
         loop
-        slidesPerView={3}
+        slidesPerView={1}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",

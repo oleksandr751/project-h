@@ -13,7 +13,7 @@ export const globalTheme = createTheme({
       main: "#138DD0",
     },
     secondary: {
-      main: "#EB0014",
+      main: "#FA496E",
     },
   },
 } as ThemeOptions);
