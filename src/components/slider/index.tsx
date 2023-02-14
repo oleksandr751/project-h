@@ -29,7 +29,7 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
     Autoplay,
   ]);
   return (
-    <Box sx={{ width: "85vw" }}>
+    <Box sx={{ width: "80vw" }}>
       <Swiper
         style={{ height: "600px" }}
         loop

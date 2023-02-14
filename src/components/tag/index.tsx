@@ -17,6 +17,16 @@ const ICON_VARIANT: Record<EIconName, JSX.Element> = {
   [EIconName.Writer]: <HistoryEduIcon style={{ color: "white" }} />,
   [EIconName.Science]: <ScienceIcon style={{ color: "white" }} />,
 };
+const COLOR_VARIANT: Record<EIconName, string> = {
+  [EIconName.Composer]: "#138DD0",
+  [EIconName.Music]: "#138DD0",
+  [EIconName.Military]: "#EB0014",
+  [EIconName.Physics]: "#138DD0",
+  [EIconName.Poet]: "#138DD0",
+  [EIconName.Politics]: "#138DD0",
+  [EIconName.Writer]: "#138DD0",
+  [EIconName.Science]: "#138DD0",
+};
 
 interface ITagComponent {
   tagName: EIconName;
@@ -26,7 +36,7 @@ const TagComponent: React.FC<ITagComponent> = ({ tagName }) => {
   return (
     <Stack direction="row" spacing={1}>
       <Chip
-        sx={{ backgroundColor: "#138DD0", color: "white" }}
+        sx={{ backgroundColor: COLOR_VARIANT[tagName], color: "white" }}
         icon={ICON_VARIANT[tagName]}
         label={tagName}
         size="small"

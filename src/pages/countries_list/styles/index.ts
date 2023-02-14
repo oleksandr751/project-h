@@ -1,6 +1,6 @@
 export const countriesListStyle = {
   mainDiv: {
-    height: "100vh",
+    // height: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -15,7 +15,7 @@ export const countriesListStyle = {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    height: "70%",
+    height: "90vh",
     width: "70%",
   },
   leftChildDiv: {

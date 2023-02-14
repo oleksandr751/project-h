@@ -9,6 +9,7 @@ import PopularTopics from "./popularTopics";
 import { MainContext } from "../../../context";
 import { IContentData } from "../../../interfaces";
 import { countriesListStyle } from "../styles";
+import InfoPage from "./infopage";
 
 const Homepage = () => {
   const { setSelectedItem, countriesData } = useContext(MainContext);
@@ -58,6 +59,7 @@ const Homepage = () => {
           )}
         </Box>
       </Box>
+      <InfoPage />
     </Box>
   );
 };

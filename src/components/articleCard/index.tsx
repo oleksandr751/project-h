@@ -10,12 +10,12 @@ interface IArticleCard {
 const ArticleCard: React.FC<IArticleCard> = ({ articleData }) => {
   return (
     <Box sx={cardStyles.cardDiv}>
-      <Box>
+      <Box sx={{ width: "100%" }}>
         <img
           src={articleData.imageSrc}
           alt="Something wrong"
           style={{
-            width: "400px",
+            width: "100%",
             height: "170px",
             borderRadius: "10px 10px 0px 0px",
           }}
@@ -27,7 +27,10 @@ const ArticleCard: React.FC<IArticleCard> = ({ articleData }) => {
       </Typography>
       <Box sx={cardStyles.tagsDiv}>
         {articleData?.tags?.map((tag) => (
-          <TagComponent tagName={tag} key={tag} />
+          <TagComponent
+            tagName={tag}
+            key={tag + Math.floor(Math.random() * 10000)}
+          />
         ))}
       </Box>
       <Box sx={cardStyles.bottomCardDiv}>
