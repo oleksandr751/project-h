@@ -29,12 +29,11 @@ const Header = () => {
       >
         <img src="/images/logo.png" alt="logo"></img>
       </Box>
-      <Box sx={{ height: "100%" }}>
+      <Box>
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
-            minHeight: "100%",
           }}
         >
           <Typography
