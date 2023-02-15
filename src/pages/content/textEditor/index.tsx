@@ -36,13 +36,17 @@ const TextEditor = () => {
 
   return (
     <Box>
-      <Box style={{ width: 600, height: 250 }}>
+      <Box>
         {/* <Box ref={quillRef} /> */}
         <ReactQuill
           theme="snow"
           value={value}
           onChange={setValue}
           modules={modules}
+          style={{
+            width: 600,
+            height: 400,
+          }}
         />
       </Box>
     </Box>
