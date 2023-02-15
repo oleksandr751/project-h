@@ -10,7 +10,7 @@ export const useChartValues = () => {
   ) => {
     try {
       const response = await request(
-        `${process.env.API_URL}/api/chartValues/${countryName}/${dataName}`
+        `${process.env.REACT_APP_API_URL}/api/chartValues/${countryName}/${dataName}`
       );
       // console.log(response);
       setNewChartValues(response.data);

@@ -8,7 +8,9 @@ export const useCountriesData = () => {
   const { setCountriesData, setSelectedItem } = useContext(MainContext);
   const getCountries = async () => {
     try {
-      const response = await request(`${process.env.API_URL}/api/countries`);
+      const response = await request(
+        `${process.env.REACT_APP_API_URL}/api/countries`
+      );
       setCountriesData(
         response.sort((a: IContentData, b: IContentData) =>
           a.name < b.name ? -1 : 1
@@ -19,7 +21,7 @@ export const useCountriesData = () => {
   const getCountry = async (id: string | null) => {
     try {
       const response = await request(
-        `${process.env.API_URL}/api/countries/${id}`
+        `${process.env.REACT_APP_API_URL}/api/countries/${id}`
       );
       setSelectedItem(response);
     } catch (error) {}

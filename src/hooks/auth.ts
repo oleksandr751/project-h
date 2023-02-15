@@ -17,7 +17,7 @@ export const useAuth = () => {
   ) => {
     try {
       const response = await request(
-        `${process.env.API_URL}/api/auth/login`,
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
         "POST",
         {
           email: login,
@@ -35,7 +35,7 @@ export const useAuth = () => {
     console.log(signUpData);
     try {
       await request(
-        `${process.env.API_URL}/api/auth/register`,
+        `${process.env.REACT_APP_API_URL}/api/auth/register`,
         "POST",
         signUpData
       );

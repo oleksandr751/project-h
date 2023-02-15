@@ -13,7 +13,7 @@ export const useGreatPeopleData = () => {
     try {
       setLoading(true);
       const response = await request(
-        `${process.env.API_URL}/api/greatPeople/${countryName}`
+        `${process.env.REACT_APP_API_URL}/api/greatPeople/${countryName}`
       );
       setGreatPeople(
         response.sort((a: IGreatPeople, b: IGreatPeople) =>
@@ -31,7 +31,7 @@ export const useGreatPeopleData = () => {
   ) => {
     try {
       const response = await request(
-        `${process.env.API_URL}/api/greatPeople/update`,
+        `${process.env.REACT_APP_API_URL}/api/greatPeople/update`,
         "PUT",
         {
           data: greatPeople,
@@ -65,7 +65,7 @@ export const useGreatPeopleData = () => {
   ) => {
     try {
       const response = await request(
-        `${process.env.API_URL}/api/greatPeople/add`,
+        `${process.env.REACT_APP_API_URL}/api/greatPeople/add`,
         "POST",
         {
           data: greatPeople,
