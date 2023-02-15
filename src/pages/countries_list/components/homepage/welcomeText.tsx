@@ -6,7 +6,7 @@ import StartIcon from "@mui/icons-material/Start";
 import { countriesListStyle } from "../../styles";
 const WelcomeText = () => {
   return (
-    <Box sx={{ textAlign: "start" }}>
+    <Box sx={{ textAlign: "start", padding: "50px" }}>
       <Typography variant="h1" sx={countriesListStyle.typography}>
         PROJECT-H
       </Typography>

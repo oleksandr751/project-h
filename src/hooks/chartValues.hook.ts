@@ -1,4 +1,3 @@
-import { API_URL } from "../config";
 import { useHttp } from "./http.hook";
 import { IChartValues } from "../interfaces/index";
 
@@ -11,7 +10,7 @@ export const useChartValues = () => {
   ) => {
     try {
       const response = await request(
-        `${API_URL}/api/chartValues/${countryName}/${dataName}`
+        `${process.env.API_URL}/api/chartValues/${countryName}/${dataName}`
       );
       // console.log(response);
       setNewChartValues(response.data);

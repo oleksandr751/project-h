@@ -14,9 +14,10 @@ interface IRatioBar {
   data: IRatioBarData;
 }
 const iconStyle = {
-  normal: { margin: "10px" },
+  normal: { margin: "10px", fontSize: "40px" },
   reversed: {
     margin: "10px",
+    fontSize: "40px",
     transform: "scaleX(-1)",
   },
 };
@@ -70,7 +71,7 @@ const RatioBar: React.FC<IRatioBar> = ({ data }) => {
               alignItems: "center",
             }}
           >
-            <Typography>{values.b}</Typography>
+            <Typography sx={{ color: "white" }}>{values.b}</Typography>
           </Box>
           <Box
             sx={{
@@ -82,7 +83,7 @@ const RatioBar: React.FC<IRatioBar> = ({ data }) => {
               alignItems: "center",
             }}
           >
-            <Typography>{values.a}</Typography>
+            <Typography sx={{ color: "white" }}>{values.a}</Typography>
           </Box>
         </Box>
         {ICON_VARIANT_REVERSED[type]}

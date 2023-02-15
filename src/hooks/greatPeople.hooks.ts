@@ -1,4 +1,3 @@
-import { API_URL } from "../config";
 import { useHttp } from "./http.hook";
 import { useContext } from "react";
 import { MainContext } from "../context/index";
@@ -14,7 +13,7 @@ export const useGreatPeopleData = () => {
     try {
       setLoading(true);
       const response = await request(
-        `${API_URL}/api/greatPeople/${countryName}`
+        `${process.env.API_URL}/api/greatPeople/${countryName}`
       );
       setGreatPeople(
         response.sort((a: IGreatPeople, b: IGreatPeople) =>
@@ -32,7 +31,7 @@ export const useGreatPeopleData = () => {
   ) => {
     try {
       const response = await request(
-        `${API_URL}/api/greatPeople/update`,
+        `${process.env.API_URL}/api/greatPeople/update`,
         "PUT",
         {
           data: greatPeople,
@@ -65,9 +64,13 @@ export const useGreatPeopleData = () => {
     setAlertType: (par: string) => void
   ) => {
     try {
-      const response = await request(`${API_URL}/api/greatPeople/add`, "POST", {
-        data: greatPeople,
-      });
+      const response = await request(
+        `${process.env.API_URL}/api/greatPeople/add`,
+        "POST",
+        {
+          data: greatPeople,
+        }
+      );
       applyChanges(
         setOpenAlert,
         setAlertMessage,

@@ -20,7 +20,7 @@ const ICON_VARIANT: Record<EIconName, JSX.Element> = {
 const COLOR_VARIANT: Record<EIconName, string> = {
   [EIconName.Composer]: "#138DD0",
   [EIconName.Music]: "#138DD0",
-  [EIconName.Military]: "#EB0014",
+  [EIconName.Military]: "#D24F4F",
   [EIconName.Physics]: "#138DD0",
   [EIconName.Poet]: "#138DD0",
   [EIconName.Politics]: "#138DD0",
@@ -41,7 +41,6 @@ const TagComponent: React.FC<ITagComponent> = ({ tagName }) => {
         label={tagName}
         size="small"
       />
-      {/* <Chip icon={<FaceIcon />} label="With Icon" variant="outlined" /> */}
     </Stack>
   );
 };
