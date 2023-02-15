@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PASS, SESSION_KEY, API_URL } from "../config";
+import { PASS, SESSION_KEY } from "../config";
 import { MainContext } from "../context";
 import { useHttp } from "./http.hook";
 
@@ -16,10 +16,14 @@ export const useAuth = () => {
     setLoginAttempt: (par: boolean) => void
   ) => {
     try {
-      const response = await request(`${API_URL}/api/auth/login`, "POST", {
-        email: login,
-        password: pass,
-      });
+      const response = await request(
+        `${process.env.API_URL}/api/auth/login`,
+        "POST",
+        {
+          email: login,
+          password: pass,
+        }
+      );
       if (response.status === "success") {
         window.sessionStorage.setItem(SESSION_KEY, PASS);
         setIsAuthenticated(true);
@@ -30,7 +34,11 @@ export const useAuth = () => {
   const handleSignUp = async (signUpData: any) => {
     console.log(signUpData);
     try {
-      await request(`${API_URL}/api/auth/register`, "POST", signUpData);
+      await request(
+        `${process.env.API_URL}/api/auth/register`,
+        "POST",
+        signUpData
+      );
     } catch (error) {}
   };
   return { handleLogout, handleLogin, handleSignUp };
