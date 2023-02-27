@@ -25,6 +25,7 @@ export const countriesListStyle = {
     textAlign: "center",
     alignItems: "center",
     height: "100%",
+    paddingRight: "50px",
     width: "50%",
   },
   rightChildDiv: {

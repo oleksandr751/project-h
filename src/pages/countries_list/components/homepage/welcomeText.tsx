@@ -7,7 +7,7 @@ import { countriesListStyle } from "../../styles";
 const WelcomeText = () => {
   return (
     <Box sx={{ textAlign: "start", padding: "50px" }}>
-      <Typography variant="h1" sx={countriesListStyle.typography}>
+      <Typography variant="h3" sx={countriesListStyle.typography}>
         PROJECT-H
       </Typography>
       <Typography variant="h6" sx={countriesListStyle.typography}>

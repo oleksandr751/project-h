@@ -29,7 +29,7 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
     Autoplay,
   ]);
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "500px" }}>
       <Swiper
         style={{ height: "500px" }}
         loop
@@ -70,7 +70,7 @@ const Slider: React.FC<ISliderProps> = ({ slidesData }) => {
             <ChevronLeft></ChevronLeft>
           </IconButton>
         </Box>
-        <Box className="swiper-pagination"></Box>
+        {/* <Box className="swiper-pagination"></Box> */}
       </Swiper>
     </Box>
   );

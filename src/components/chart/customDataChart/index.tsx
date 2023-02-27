@@ -6,7 +6,7 @@ import RatioBar from "./RatioBar";
 
 const CustomDataChart = () => {
   return (
-    <Box width={"700px"}>
+    <Box width="100%">
       <Box
         sx={{
           display: "flex",

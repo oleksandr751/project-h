@@ -5,7 +5,6 @@ export const cardStyles = {
     justifyContent: "space-around",
     alignItems: "center",
     padding: "50px",
-    width: "50%",
     borderLeft: 5,
     borderColor: "#FA496E ",
     height: "500px",

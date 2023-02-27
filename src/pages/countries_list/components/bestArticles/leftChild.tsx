@@ -4,17 +4,7 @@ import ListWithIcons from "../../../../components/list";
 import { Box, Typography } from "@mui/material";
 const LeftChild = () => {
   return (
-    <Box
-      sx={{
-        width: "50%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "flex-start",
-        height: "500px",
-        padding: "50px",
-      }}
-    >
+    <Box>
       <Typography variant="h4" sx={{ marginTop: "20px", userSelect: "none" }}>
         More information for you
       </Typography>
