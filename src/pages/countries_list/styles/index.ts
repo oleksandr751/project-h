@@ -38,7 +38,12 @@ export const countriesListStyle = {
     borderLeft: 5,
     borderColor: "#FA496E ",
   },
-  typography: { color: "#e0fbfc", marginTop: "20px", userSelect: "none" },
+  typography: {
+    color: "#e0fbfc",
+    marginTop: "20px",
+    userSelect: "none",
+    textAlign: "justify",
+  },
   link: {
     textDecoration: "none",
     marginTop: "20px",

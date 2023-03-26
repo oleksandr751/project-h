@@ -16,3 +16,21 @@ export enum EIconName2 {
   Artillery = "artillery",
   Ships = "ships",
 }
+
+export enum EHeaderIconName {
+  trending = "trending",
+  article = "article",
+  setting = "setting",
+  notification = "notification",
+  voice = "voice",
+  stats = "stats",
+}
+
+export enum EColors {
+  green = "green",
+  red = "red",
+  blue = "blue",
+  yellow = "yellow",
+  orange = "orange",
+  cyan = "cyan",
+}

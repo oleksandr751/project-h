@@ -10,7 +10,12 @@ const LeftChild = () => {
       </Typography>
       <Typography
         variant="h6"
-        sx={{ marginTop: "20px", userSelect: "none", color: "#8C99AD" }}
+        sx={{
+          marginTop: "20px",
+          userSelect: "none",
+          color: "#8C99AD",
+          textAlign: "justify",
+        }}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quam velit
         repellendus sit! Assumenda asperiores libero ab tenetur rerum

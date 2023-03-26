@@ -19,11 +19,15 @@ const CountriesListPage = () => {
     >
       <Homepage />
       <PageWithSeparator
+        // headerIcon={HEADER_ICON_VARIANT.article}
+        // headerIconColor={COLOR_VARIANT.blue}
         header={"Articles"}
         leftChild={<LeftChild />}
         rightChild={<RightChild />}
       ></PageWithSeparator>
       <PageWithSeparator
+        // headerIcon={HEADER_ICON_VARIANT.stats}
+        // headerIconColor={COLOR_VARIANT.red}
         header={"Infographics"}
         leftChild={<CustomDataChart />}
         rightChild={<LeftChild />}

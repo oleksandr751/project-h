@@ -32,22 +32,7 @@ const InfoCard: React.FC<IInfoCard> = ({ icon, color }) => {
             alignItems: "center",
           }}
         >
-          <Box
-            sx={{
-              backgroundColor: "transparent",
-              display: "flex",
-              width: "70px",
-              height: "70px",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              border: `2px solid ${color}`,
-              borderRadius: "50%",
-              padding: "10px",
-            }}
-          >
-            {icon}
-          </Box>
+          {icon}
           <Typography variant="h4" sx={{ color: color }}>
             Text 1
           </Typography>

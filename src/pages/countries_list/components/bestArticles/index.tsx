@@ -4,11 +4,15 @@ interface IPageWithSeparator {
   leftChild: JSX.Element;
   rightChild: JSX.Element;
   header: string;
+  headerIcon?: JSX.Element;
+  headerIconColor?: string;
 }
 const PageWithSeparator: React.FC<IPageWithSeparator> = ({
   leftChild,
   rightChild,
   header,
+  headerIcon,
+  headerIconColor,
 }) => {
   return (
     <Box
@@ -22,9 +26,17 @@ const PageWithSeparator: React.FC<IPageWithSeparator> = ({
         margin: "50px 0 50px 0",
       }}
     >
-      <Typography variant="h2" sx={{ marginBottom: "50px" }}>
-        {header}
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: "50px",
+        }}
+      >
+        <Typography variant="h2">{header}</Typography>
+        {headerIcon}
+      </Box>
       <Box
         sx={{
           display: "flex",
